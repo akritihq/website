@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A live demo of the PLACE classification engine on Orbit5k: from raw point clouds to certified predictions, with descriptor and filtration selected in closed form rather than by cross-validation.">
+
+<title>PLACE — closed-form classification on persistence diagrams – Akriti</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../branding/akriti-mark.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-80daa4f1f4f0357976d2435cd443b12d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="branding/akriti-mark-dark.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+
+<meta property="og:title" content="PLACE — closed-form classification on persistence diagrams">
+<meta property="og:description" content="A live demo of the PLACE classification engine on Orbit5k: from raw point clouds to certified predictions, with descriptor and filtration selected in closed form rather than by cross-validation.">
+<meta property="og:image" content="https://akriti.io/branding/akriti-mark-dark.svg">
+<meta property="og:site_name" content="Akriti">
+<meta property="og:image:alt" content="">
+<meta name="twitter:title" content="PLACE — closed-form classification on persistence diagrams">
+<meta name="twitter:description" content="A live demo of the PLACE classification engine on Orbit5k: from raw point clouds to certified predictions, with descriptor and filtration selected in closed form rather than by cross-validation.">
+<meta name="twitter:image" content="https://akriti.io/branding/akriti-mark-dark.svg">
+<meta name="twitter:creator" content="@akritihq">
+<meta name="twitter:site" content="@akritihq">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image:alt" content="">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<nav class="akriti-nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="../../" class="nav-brand" aria-label="Akriti — home">
+      <img src="../../branding/akriti-mark-dark.svg" alt="" class="nav-mark">
+      <span class="nav-wordmark">ĀKRITI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../../#about">About</a></li>
+      <li><a href="../../#capabilities">Capabilities</a></li>
+      <li><a href="../../#compare">Compare</a></li>
+      <li><a href="../../#code">Code</a></li>
+      <li><a href="../../#team">Team</a></li>
+      <li><a href="../../#research">Research</a></li>
+      <li><a href="../../teach/">Teach</a></li>
+    </ul>
+    <a href="https://huggingface.co/spaces/akritihq/try" class="nav-try" target="_blank" rel="noopener">
+      Try&nbsp;<span aria-hidden="true">↗</span>
+    </a>
+    <a href="https://github.com/akritihq" class="nav-github" aria-label="Akriti on GitHub" target="_blank" rel="noopener">
+      <svg viewbox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.11.79-.25.79-.56 0-.28-.01-1.01-.02-1.99-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"></path>
+      </svg>
+    </a>
+  </div>
+</nav>
+<section class="demo-hero">
+  <div class="akriti-container">
+    <h3 class="section-heading">Demo · PLACE classification engine</h3>
+    <h1 class="demo-title">From persistence diagrams to certified predictions, in two lines.</h1>
+    <p class="demo-lede">A live walk-through of <strong>PLACE</strong> — the closed-form Persistence-Landmark Analytic Classification Engine — on the Orbit5k benchmark. The descriptor and filtration are fixed analytically from the training labels — no cross-validation on those axes. (Structural choices such as the landmark budget and bandwidth are a different matter; see the note below.)</p>
+    <div class="demo-headline-stats">
+      <div><span class="hk-num">87.2%</span><span class="hk-label">Orbit5k accuracy</span></div>
+      <div><span class="hk-num">88.4%</span><span class="hk-label">MUTAG accuracy</span></div>
+      <div><span class="hk-num">100%</span><span class="hk-label">test agreement on MUTAG</span></div>
+      <div><span class="hk-num">0</span><span class="hk-label">held-out hyperparams</span></div>
+    </div>
+    <p class="demo-attr">From <em>"A Closed-Form Persistence-Landmark Pipeline for Certified Point-Cloud and Graph Classification"</em> · Bagchi, Majhi, Mitra, Virk · TMLR 2026 (under review).</p>
+  </div>
+</section>
+<section class="akriti-section" id="dataset">
+  <div class="akriti-container">
+    <h3 class="section-heading">The dataset</h3>
+    <h2 class="section-title">Orbit5k — five dynamical systems, one topology problem.</h2>
+    <p class="lede">5,000 point clouds in $[0,1]^2$, 1,000 per class, generated by iterating a 2-D dynamical system at five parameter values $\rho \in \{2.5, 3.5, 4.0, 4.1, 4.3\}$. The harder classes ($\rho = 4.0, 4.1, 4.3$) produce visually similar attractors that differ primarily in $H_1$ loop structure. The task: predict $\rho$ from the point cloud.</p>
+
+    <figure class="demo-fig demo-fig-wide figure">
+      <img src="figures/orbit5k-overview.png" alt="Orbit5k overview: top row shows one example point cloud per ρ class; bottom row shows the corresponding H_1 persistence diagrams" loading="lazy" class="figure-img">
+      <figcaption><strong>Top:</strong> one orbit per class. <strong>Bottom:</strong> its $H_1$ persistence diagram. The four "hard" right-side classes look superficially similar in 2-D but their $H_1$ diagrams differ in cycle structure — this is what makes Orbit5k a topology-discriminable benchmark.</figcaption>
+    </figure>
+  </div>
+</section>
+<section class="akriti-section" id="stage-1">
+  <div class="akriti-container">
+    <h3 class="section-heading">Stage 1 — Compute persistence</h3>
+    <h2 class="section-title">The α-complex filtration, batched.</h2>
+    <p class="lede">Every point cloud becomes a multi-set of birth–death pairs in $H_1$. Akriti delegates this to GUDHI under the hood; the user sees one call.</p>
+
+    <pre class="code-block"><span class="k">import</span> <span class="n">akriti</span>
+
+<span class="n">diagrams</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">persistence</span><span class="o">(</span><span class="n">point_clouds</span><span class="o">,</span> <span class="n">filtration</span><span class="o">=</span><span class="s">"alpha"</span><span class="o">,</span> <span class="n">dim</span><span class="o">=</span><span class="b">1</span><span class="o">)</span>
+<span class="c"># 5,000 diagrams → top-50 most persistent features per diagram (the noise filter).</span></pre>
+
+    <p class="demo-aside">No <code>max_edge_length</code> to pick. No homology dimensions to enumerate. <code>dim=1</code> is a hint — Akriti would auto-select if omitted. The top-50 persistence filter is a single closed-form choice that strips noise without truncating the signal.</p>
+  </div>
+</section>
+<section class="akriti-section" id="stage-2">
+  <div class="akriti-container">
+    <h3 class="section-heading">Stage 2 — PLACE embedding</h3>
+    <h2 class="section-title">Sum hat-functions over a landmark grid. Closed form.</h2>
+    <p class="lede">Each diagram is embedded as $\Phi(A) = \bigl(w_k \cdot 2^{-3/2} \sum_{a \in A} \varphi_{R_k, p}(a)\bigr)_{k=1}^N$ — a concatenation of single-scale sums of compactly-supported hat coordinates. Linear in the diagram measure. The block weights $w_k$ are the unique maximizer of the bi-Lipschitz distortion slope:</p>
+
+    <div class="demo-formula">
+      $$w_k^2 \;\propto\; \frac{d_{k+1}^2 - d_k^2}{R_k^{\,2}}, \qquad d_k := R_k - R_1$$
+    </div>
+
+    <p class="lede">No optimizer. No grid search. The same formula gives the optimal weights every time.</p>
+
+    <pre class="code-block"><span class="n">features</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">embed</span><span class="o">(</span><span class="n">diagrams</span><span class="o">,</span> <span class="n">method</span><span class="o">=</span><span class="s">"place"</span><span class="o">,</span> <span class="n">scales</span><span class="o">=</span><span class="b">10</span><span class="o">)</span>
+<span class="c"># features.shape == (5000, ℓ)  with ℓ = O(M·N) ≈ 1366 for Orbit5k</span></pre>
+
+    <div class="demo-claim-grid">
+      <div class="demo-claim">
+        <div class="claim-tag">Claim</div>
+        <div class="claim-text">Bi-Lipschitz on $\mathcal{D}_n$ under $\nu$-coherence (Prop. 2.1)</div>
+      </div>
+      <div class="demo-claim">
+        <div class="claim-tag">Empirical</div>
+        <div class="claim-text">Holds on $\geq 99.7\%$ of cross-class pairs across the 4 chemical benchmarks audited</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="akriti-section" id="stage-3">
+  <div class="akriti-container">
+    <h3 class="section-heading">Stage 3 — Linear SVM</h3>
+    <h2 class="section-title">A linear classifier in $\mathbb{R}^\ell$. No kernel tuning.</h2>
+    <p class="lede">With the embedding fixed analytically, downstream classification is just a linear SVM in the embedded space. The margin-based excess-risk rate</p>
+
+    <div class="demo-formula">
+      $$\mathcal{R}(h) \;\leq\; \widehat{\mathcal{R}}_\rho(h) \;+\; \frac{8(k-1)\,R}{\Delta\,\sqrt{m_{\min}}} + O\!\left(\sqrt{\tfrac{\log(k/\delta)}{m_{\min}}}\right)$$
+    </div>
+
+    <p class="lede">depends on the population class-mean separation $\Delta$ — not on the worst-case bottleneck distance. This is what lets PLACE work on benchmarks where some cross-class pairs are bottleneck-close.</p>
+
+    <pre class="code-block"><span class="n">clf</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">classify</span><span class="o">(</span><span class="n">features</span><span class="o">,</span> <span class="n">labels</span><span class="o">,</span> <span class="n">model</span><span class="o">=</span><span class="s">"linear_svm"</span><span class="o">)</span>
+<span class="c"># Trains a one-vs-rest LinearSVC. C is selected by inner CV on the training fold</span>
+<span class="c"># (the only CV in the entire pipeline; bounded to 7 candidates).</span></pre>
+  </div>
+</section>
+<section class="akriti-section" id="stage-4">
+  <div class="akriti-container">
+    <h3 class="section-heading">Stage 4 — Per-prediction certificates</h3>
+    <h2 class="section-title">Decided once, at training time.</h2>
+    <p class="lede">Akriti's certificate fires when the empirical class-mean concentration radius is smaller than half the empirical class-mean gap:</p>
+
+    <div class="demo-formula">
+      $$r_m \;&lt;\; \tfrac{1}{2}\,\hat{\Delta}$$
+    </div>
+
+    <p class="lede">When the certificate fires, the empirical nearest-centroid prediction agrees with the population nearest-centroid prediction on every test input — with probability $\geq 1 - \alpha$. No calibration split. No per-prediction overhead.</p>
+
+    <pre class="code-block"><span class="n">predictions</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="o">(</span><span class="n">test_features</span><span class="o">)</span>
+
+<span class="n">predictions</span><span class="o">.</span><span class="n">labels</span>           <span class="c"># the predicted class</span>
+<span class="n">predictions</span><span class="o">.</span><span class="n">certified</span>        <span class="c"># bool array — did the certificate fire?</span>
+<span class="n">predictions</span><span class="o">.</span><span class="n">certificate</span><span class="o">.</span><span class="n">radius</span>  <span class="c"># r_m</span>
+<span class="n">predictions</span><span class="o">.</span><span class="n">certificate</span><span class="o">.</span><span class="n">gap</span>     <span class="c"># Δ</span></pre>
+
+    <div class="cert-firing-grid">
+      <div class="cert-firing-card">
+        <div class="cf-name">Pinelis (non-asymptotic)</div>
+        <div class="cf-formula">$r_m = 2R\sqrt{2\log(2k/\alpha)/m}$</div>
+        <div class="cf-fire">Fires on <strong>0 / 12</strong> benchmarks at our $m$</div>
+      </div>
+      <div class="cert-firing-card highlight">
+        <div class="cf-name">Pinelis–Bernstein (variance-aware)</div>
+        <div class="cf-formula">$r_m = \sqrt{2\,\|\hat\Sigma_c\|_{\mathrm{op}}\log(2k/\alpha)/m_c}$</div>
+        <div class="cf-fire">Fires on <strong>8 / 12</strong> benchmarks <span class="cf-pp">incl. MUTAG, NCI1, NCI109, DHFR, PROTEINS, DD</span></div>
+      </div>
+      <div class="cert-firing-card">
+        <div class="cf-name">Gaussian plug-in (asymptotic)</div>
+        <div class="cf-formula">$r_m = \sqrt{\|\hat\Sigma_c\|_{\mathrm{op}}\,\chi^2_{\ell,\alpha/k}/m_c}$</div>
+        <div class="cf-fire">Fires on <strong>0 / 12</strong> benchmarks (dim. penalty too large)</div>
+      </div>
+    </div>
+
+    <div class="demo-aside">
+      <strong>On MUTAG:</strong> the empirical NC prediction agreed with the population NC rule on <strong>every one of 940 held-out test predictions</strong> (Clopper–Pearson 95% lower bound on coverage $\geq 0.984$). The Pinelis–Bernstein radius fires the certificate on every fold.
+    </div>
+  </div>
+</section>
+<section class="akriti-section" id="results">
+  <div class="akriti-container">
+    <h3 class="section-heading">Stage 5 — Results</h3>
+    <h2 class="section-title">Strongest diagram-based method on Orbit5k.</h2>
+    <p class="lede">Among all methods that operate on persistence diagrams alone, PLACE achieves the highest accuracy on Orbit5k. Two-parameter Euler methods (which bypass diagrams) and transformer-based Persformer (which learns end-to-end) are stronger but trade away the closed-form / certificate properties.</p>
+
+    <div class="compare-table-wrap">
+      
+<table class="compare-table caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="row-label" data-quarto-table-cell-role="th" scope="col">Method</th>
+<th data-quarto-table-cell-role="th" scope="col">Class</th>
+<th data-quarto-table-cell-role="th" scope="col">Orbit5k acc.</th>
+<th data-quarto-table-cell-role="th" scope="col">Tuning-free</th>
+<th data-quarto-table-cell-role="th" scope="col">Per-prediction certificate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row">Persistence images <a href="#" style="color:var(--text-faint);font-size:0.8em;">(Adams '17)</a></td>
+<td>Vectorisation</td>
+<td>82.5%</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr class="even">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row">SW-K kernel <a href="#" style="color:var(--text-faint);font-size:0.8em;">(Carrière '17)</a></td>
+<td>Kernel</td>
+<td>83.6%</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr class="odd">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row">PF-K kernel <a href="#" style="color:var(--text-faint);font-size:0.8em;">(Le, Yamada '18)</a></td>
+<td>Kernel</td>
+<td>85.9%</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr class="even">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row">PersLay <a href="#" style="color:var(--text-faint);font-size:0.8em;">(Carrière '20)</a></td>
+<td>Neural</td>
+<td>87.7%</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr class="odd" style="background: var(--primary-soft);">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row" style="color: var(--primary); font-weight: 700">PLACE</td>
+<td class="us" style="color: var(--primary); font-weight: 600">Closed-form</td>
+<td class="us yes" style="font-weight: 700">87.2%</td>
+<td class="us yes">✓</td>
+<td class="us yes">✓ (PB radius)</td>
+</tr>
+<tr class="even">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row">Persformer <a href="#" style="color:var(--text-faint);font-size:0.8em;">(Reinauer '21)</a></td>
+<td>Transformer</td>
+<td>91.2%</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+<tr class="odd">
+<td class="row-label" data-quarto-table-cell-role="th" scope="row">ECS+XGB <a href="#" style="color:var(--text-faint);font-size:0.8em;">(Hacquard '24)</a></td>
+<td>Two-param Euler</td>
+<td>91.8%</td>
+<td class="no">—</td>
+<td class="no">—</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    <p class="demo-aside" style="margin-top:24px;">
+      <strong>The trade.</strong> PLACE is statistically indistinguishable from PersLay (the strongest neural diagram-based method) at $p = 0.05$, while ECS+XGB and Persformer beat PLACE at $p &lt; 0.01$ — but at the cost of either bypassing diagrams entirely (ECS) or learning the embedding end-to-end (Persformer). PLACE is the choice when you need provable bounds and per-prediction certificates without surrendering interpretability.
+    </p>
+  </div>
+</section>
+<section class="akriti-section" id="closing">
+  <div class="akriti-container">
+    <h3 class="section-heading">Why this matters</h3>
+    <h2 class="section-title">Closed-form everything is the moat.</h2>
+
+    <div class="closing-grid">
+      <div class="closing-point">
+        <div class="cp-num">01</div>
+        <div class="cp-text"><strong>The embedding is closed-form.</strong> The weight rule $w_k^2 \propto (d_{k+1}^2 - d_k^2)/R_k^2$ is the unique maximizer of the bi-Lipschitz distortion slope. No optimization.</div>
+      </div>
+      <div class="closing-point">
+        <div class="cp-num">02</div>
+        <div class="cp-text"><strong>The descriptor selection is closed-form.</strong> The Mahalanobis margin $\hat\rho_{\mathrm{Mah}}$ between class means under Ledoit–Wolf-shrunk pooled covariance ranks descriptors against linear-SVM accuracy at mean Spearman $\rho \approx +0.54$ across 10 benchmarks — no cross-validation needed on this axis. Descriptor choice within a scale-homogeneous family is <em>within-structure</em>, where the plug-in selector is provably consistent. The landmark budget, placement, bandwidth and concatenation rules are <em>not</em>: there, structural bias can dominate the signal and reverse the ranking, and cross-validation remains necessary.</div>
+      </div>
+      <div class="closing-point">
+        <div class="cp-num">03</div>
+        <div class="cp-text"><strong>The certificate is closed-form.</strong> $r_m &lt; \tfrac{1}{2}\hat\Delta$ is computed once at training time. No calibration split. No per-prediction overhead.</div>
+      </div>
+      <div class="closing-point">
+        <div class="cp-num">04</div>
+        <div class="cp-text"><strong>The whole pipeline is API-friendly.</strong> <code>akriti.classify(X, y).predict(X_test)</code> covers everything. The library decides; the bound is provable; the user writes two lines.</div>
+      </div>
+    </div>
+
+    <div class="lesson-cta" style="margin-top:48px;">
+      <div class="cta-pack">
+        <strong>Try it yourself</strong>
+        <ul>
+          <li>Playground with full dataset upload at <a href="https://huggingface.co/spaces/akritihq/try" target="_blank" rel="noopener">try.akriti.io</a></li>
+          <li>Source code (when v0.0.1 ships): <a href="https://github.com/akritihq/akriti" target="_blank" rel="noopener">github.com/akritihq/akriti</a></li>
+          <li>Paper draft + bibliography: <a href="../../#research">akriti.io / research</a></li>
+        </ul>
+      </div>
+      <div class="cta-actions">
+        <a class="cta-btn primary" href="https://huggingface.co/spaces/akritihq/try" target="_blank" rel="noopener">Open the playground →</a>
+        <p class="cta-note">MUTAG and graph-classification demos coming next; check back tomorrow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="akriti-footer">
+  <div class="akriti-container">
+    <div class="seal">
+      <span class="latin">AKRITI</span>
+      <span class="dot"></span>
+      <span class="deva">आकृति</span>
+    </div>
+    <div class="footer-meta">
+      <span class="row">© 2026 Akriti contributors</span>
+      <span class="row">Apache-2.0 · built on <a href="https://gudhi.inria.fr/">GUDHI</a> · <a href="https://github.com/akritihq">github.com/akritihq</a> · <a href="mailto:hello@akriti.io">hello@akriti.io</a></span>
+    </div>
+  </div>
+</footer>
+
+
+
+</main> <!-- /main -->
+</div> <!-- /content -->
+
+
+
+
+</body></html>
