@@ -25,3 +25,10 @@ quarto render
 ```
 
 The `post-render.sh` hook copies `branding/team/` into `docs/branding/team/` so the GitHub Pages output sees them.
+
+## Missing portraits
+
+`alexander-silberman.jpg` and `edward-bae.jpg` are referenced by the team grid
+but not present. The markup falls back to initials, so the page renders
+correctly without them. Add the files only with each person's consent — do not
+reuse photos taken from directory or social-media pages.
