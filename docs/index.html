@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Akriti is an open-source Python library bringing statistical inference to topological data analysis: hypothesis tests, effect sizes, and sample-size calculation for persistence diagrams. Computation delegated to GUDHI and Ripser. Apache-2.0.">
+<meta name="description" content="Akriti is an open-source ecosystem for topological data analysis in Python: one diagram format across every backend, a statistical inference layer, and a maintained home for published TDA methods. Computation delegated to GUDHI and Ripser. Apache-2.0.">
 
-<title>Akriti — Statistically grounded topological data analysis for Python – Akriti</title>
+<title>Akriti — an open ecosystem for topological data analysis in Python – Akriti</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,13 +74,13 @@ ul.task-list li input[type="checkbox"] {
 <link rel="icon" type="image/svg+xml" href="branding/akriti-mark-dark.svg">
 
 
-<meta property="og:title" content="Akriti — Statistically grounded topological data analysis for Python">
-<meta property="og:description" content="Akriti is an open-source Python library bringing statistical inference to topological data analysis: hypothesis tests, effect sizes, and sample-size calculation for persistence diagrams. Computation delegated to GUDHI and Ripser. Apache-2.0.">
+<meta property="og:title" content="Akriti — an open ecosystem for topological data analysis in Python">
+<meta property="og:description" content="Akriti is an open-source ecosystem for topological data analysis in Python: one diagram format across every backend, a statistical inference layer, and a maintained home for published TDA methods. Computation delegated to GUDHI and Ripser. Apache-2.0.">
 <meta property="og:image" content="https://akriti.io/branding/akriti-mark-dark.svg">
 <meta property="og:site_name" content="Akriti">
 <meta property="og:image:alt" content="">
-<meta name="twitter:title" content="Akriti — Statistically grounded topological data analysis for Python">
-<meta name="twitter:description" content="Akriti is an open-source Python library bringing statistical inference to topological data analysis: hypothesis tests, effect sizes, and sample-size calculation for persistence diagrams. Computation delegated to GUDHI and Ripser. Apache-2.0.">
+<meta name="twitter:title" content="Akriti — an open ecosystem for topological data analysis in Python">
+<meta name="twitter:description" content="Akriti is an open-source ecosystem for topological data analysis in Python: one diagram format across every backend, a statistical inference layer, and a maintained home for published TDA methods. Computation delegated to GUDHI and Ripser. Apache-2.0.">
 <meta name="twitter:image" content="https://akriti.io/branding/akriti-mark-dark.svg">
 <meta name="twitter:creator" content="@akritihq">
 <meta name="twitter:site" content="@akritihq">
@@ -110,11 +110,11 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#capabilities">Capabilities</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#code">Code</a></li>
+      <li><a href="#why">Why</a></li>
+      <li><a href="#parts">Parts</a></li>
+      <li><a href="#principles">Principles</a></li>
+      <li><a href="#contribute">Contribute</a></li>
       <li><a href="#team">Team</a></li>
-      <li><a href="#research">Research</a></li>
       <li><a href="./teach/">Teach</a></li>
     </ul>
     <a href="https://huggingface.co/spaces/akritihq/try" class="nav-try" target="_blank" rel="noopener">
@@ -133,8 +133,8 @@ ul.task-list li input[type="checkbox"] {
   <img src="branding/akriti-mark-dark.svg" alt="Akriti" class="mark">
   <h1 class="wordmark">ĀKRITI</h1>
   <p class="backronym-tagline">Assured Knowledge &amp; Reasoning In Topological Inference</p>
-  <p class="tagline">Statistically grounded topological data analysis for Python.</p>
-  <p class="sublede">Persistence diagrams tell you what shape your data has. Akriti tells you whether the answer is <em>significant</em> — hypothesis tests, effect sizes, and sample-size calculation, with computation delegated to GUDHI and Ripser. Apache-2.0, open source, contributions welcome.</p>
+  <p class="tagline">An open ecosystem for topological data analysis in Python.</p>
+  <p class="sublede">One diagram format across every backend. A statistical layer that turns shape into evidence. A maintained home for published TDA methods, whoever wrote them. Built on GUDHI and Ripser rather than around them — Apache-2.0, openly governed, contributions welcome.</p>
   <div class="badges">
     <span class="badge primary">In development · first release 2026</span>
     <span class="badge">Apache-2.0</span>
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 <section class="akriti-section" id="about">
   <div class="akriti-container">
     <h3 class="section-heading">About</h3>
-    <h2 class="section-title">The statistical layer that Python's TDA stack is missing.</h2>
+    <h2 class="section-title">Not another library. The connective tissue between the ones that exist.</h2>
     <div class="about-grid">
       <div class="etymology">
         <div class="devanagari">आकृति</div>
@@ -160,69 +160,85 @@ ul.task-list li input[type="checkbox"] {
         </div>
       </div>
       <div>
-        <p class="lede">A scientist who computes a persistence diagram is left holding a picture. The questions that follow are statistical ones — <em>is this feature significant? how large is the effect? how much data would I need to detect it?</em> — and in Python there has been nowhere to ask them. That tooling exists, but almost entirely in <strong>R</strong>. <strong>Akriti brings it to Python</strong>, and adds what neither language has: closed-form guarantees and a sample-size calculus for topological effects.</p>
-        <p class="lede" style="font-size:16px;color:#444;">Akriti also answers the question that stops most newcomers cold — <em>which filtration, which scale, which dimension?</em> Where our theory supports a principled default, the library chooses and tells you why. Where it provably does not, the library says so and points you at cross-validation rather than pretending. Honest defaults, with guardrails.</p>
+        <p class="lede">Python's topological data analysis tools are excellent and unconnected. Persistence engines that don't share a data format. Vectorisations scattered across half-maintained packages. Statistical methods published in papers and never implemented. A scientist who wants to ask a simple question — <em>is this feature real?</em> — has to assemble the answer from four libraries and a stack of PDFs.</p>
+        <p class="lede" style="font-size:16px;color:#444;">Akriti exists to be the layer that holds those pieces together: a common diagram format, the statistics Python has been missing, and a maintained home for methods from across the field. It began as the software behind four papers from our group. It is not that any more, and it should not be — an ecosystem that only implements its founders' work is a library with ambitions.</p>
         <div class="ecosystem-line">
-          Akriti sits on top of <code>GUDHI</code> and <code>Ripser</code> for persistence computation and integrates with the scientific Python ecosystem (<code>scikit-learn</code>, <code>AnnData</code>, <code>scanpy</code>). It does not replace existing tools; it makes them easier to use together.
+          We delegate computation to <code>GUDHI</code>, <code>Ripser</code> and <code>Hera</code>, interoperate with <code>persim</code>, <code>giotto-tda</code> and <code>scikit-tda</code>, and integrate with the scientific Python stack (<code>scikit-learn</code>, <code>AnnData</code>, <code>scanpy</code>). We are not trying to replace any of them.
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="akriti-section" id="capabilities">
+<section class="akriti-section" id="why">
   <div class="akriti-container">
-    <h3 class="section-heading">What Akriti does</h3>
+    <h3 class="section-heading">Why an ecosystem</h3>
+    <h2 class="section-title">The gaps are structural, not technical.</h2>
+    <p class="lede">Every piece of the Python TDA stack works. What is missing is the coordination between them — and coordination is not something any single library can add to itself.</p>
+
+    <div class="compare-closing">
+      <ol>
+        <li><strong>No shared format.</strong> Every backend emits persistence diagrams its own way, so the first thing anyone writes is conversion glue, and they write it again on the next project. A common interchange type is a small piece of code and a large amount of saved time.</li>
+        <li><strong>Statistical inference lives in R.</strong> The <code>TDA</code>, <code>TDAstats</code> and <code>tdaverse</code> packages have offered permutation tests and bootstrap confidence sets for years, funded and coordinated. Python — with a far larger TDA user base — has had essentially nothing equivalent.</li>
+        <li><strong>Published methods go unimplemented.</strong> Two-sample tests, confidence sets, effect sizes and vectorisations appear in the literature and are never packaged. Each is re-derived by whoever next needs it. A maintained home for them is worth more than any single new method.</li>
+        <li><strong>No sample-size calculus exists at all.</strong> <em>"How many samples do I need to detect a bottleneck-distance difference of size δ?"</em> is a question applied statistics answers routinely for every standard test, and topology has never answered once.</li>
+        <li><strong>Maintenance is fragile.</strong> Several of the field's computational cores are maintained by one person, some with no tagged releases. The general-purpose layer, giotto-tda, has had no commits since 2024 while still being installed thousands of times a month. That is a supply-chain problem for everyone downstream, and it is nobody's job to fix.</li>
+      </ol>
+      <p>None of this is a criticism of the projects involved. They are research software written by mathematicians whose institutions reward theorems, not maintenance. The gap is organisational, and the fix has to be organisational too.</p>
+    </div>
+  </div>
+</section>
+<section class="akriti-section" id="parts">
+  <div class="akriti-container">
+    <h3 class="section-heading">What's in it</h3>
     <h2 class="section-title">A toolkit, not a single trick.</h2>
     <p class="lede" style="font-size:15px;color:#555;">Akriti is early. Modules are marked <em>building</em> where work is under way and <em>planned</em> where they are on the roadmap — we would rather be accurate than impressive.</p>
     <div class="cap-grid">
       <div class="cap-card">
         <div class="cap-name">akriti.diagrams · <em>building</em></div>
         <div class="cap-title">One diagram format</div>
-        <div class="cap-body">A single persistence-diagram type with adapters for GUDHI, Ripser, giotto-tda, persim, and plain arrays — so you never write conversion glue again. Useful even if you use nothing else here.</div>
+        <div class="cap-body">A single persistence-diagram type with adapters for GUDHI, Ripser, giotto-tda, persim and plain arrays. The specification is public and open to comment — we would rather it became a shared convention than an Akriti detail.</div>
       </div>
       <div class="cap-card">
         <div class="cap-name">akriti.castle · <em>building</em></div>
         <div class="cap-title">Statistics for diagrams</div>
-        <div class="cap-body">A two-sample test with an effect size in bottleneck distance, a <strong>sample-size calculator</strong> for topological effects, a per-region significance map, and a robustness certificate — plus a reporting card you can paste into a methods section.</div>
+        <div class="cap-body">A two-sample test with an effect size in bottleneck distance, a <strong>sample-size calculator</strong> for topological effects, a per-region significance map and a robustness certificate — plus a reporting card you can paste into a methods section.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">akriti.methods · <em>planned</em></div>
+        <div class="cap-title">The literature, implemented</div>
+        <div class="cap-body">Reference implementations of published TDA statistics regardless of who wrote them — permutation tests, confidence sets, survival-based approaches, competing vectorisations — each cited, benchmarked against the others, and maintained.</div>
       </div>
       <div class="cap-card">
         <div class="cap-name">akriti.core · <em>building</em></div>
         <div class="cap-title">Embeddings &amp; certificates</div>
-        <div class="cap-body">The bi-Lipschitz landmark embeddings of PLACE and PALACE, closed-form descriptor selection with its validity conditions stated explicitly, and Pinelis / Gaussian certificate radii.</div>
+        <div class="cap-body">Landmark embeddings, closed-form descriptor selection with its validity conditions stated explicitly, and per-prediction certificate radii. Where a closed-form choice is provably unreliable, the library says so instead of guessing.</div>
       </div>
       <div class="cap-card">
         <div class="cap-name">akriti.compute · <em>planned</em></div>
         <div class="cap-title">Diagrams from data</div>
-        <div class="cap-body">Vietoris–Rips, alpha, cubical, and sublevel-set filtrations on point clouds, images, time series, and graphs, with defaults chosen for you. Delegates to GUDHI and Ripser; we do not reimplement persistence.</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-name">akriti.vectorise · <em>planned</em></div>
-        <div class="cap-title">Embed for ML</div>
-        <div class="cap-body">Persistence images, landscapes, Betti curves, and landmark embeddings — with a maintained benchmark comparing them, so you can choose on evidence rather than habit.</div>
+        <div class="cap-body">Vietoris–Rips, alpha, cubical and sublevel-set filtrations on point clouds, images, time series and graphs, with defaults chosen and defended. Delegates to GUDHI and Ripser; we do not reimplement persistence.</div>
       </div>
       <div class="cap-card">
         <div class="cap-name">akriti.compat · <em>planned</em></div>
         <div class="cap-title">A home for giotto-tda users</div>
-        <div class="cap-body">giotto-tda has been unmaintained since 2024. A compatibility layer lets existing pipelines keep running, on maintained and permissively licensed code.</div>
+        <div class="cap-body">giotto-tda has been unmaintained since 2024. A compatibility layer lets existing pipelines keep running on maintained, permissively licensed code — no rewrite, no stranded users.</div>
       </div>
     </div>
-    </div>
-  </section></main></div>
-
-<section class="akriti-section" id="stack">
+  </div>
+</section>
+<section class="akriti-section" id="principles">
   <div class="akriti-container">
-    <h3 class="section-heading">Where Akriti fits</h3>
-    <h2 class="section-title">A thin, statistical layer above the engines.</h2>
-    <p class="lede">Akriti doesn't replace <a href="https://gudhi.inria.fr/">GUDHI</a> or <a href="https://ripser.scikit-tda.org/">Ripser</a> — it sits on top of them. They compute the persistence diagrams; Akriti decides what to compute, turns the result into a claim you can defend, and hands it on to scikit-learn or scanpy. Roughly the relationship <code>statsmodels</code> has with NumPy.</p>
-
+    <h3 class="section-heading">Principles</h3>
+    <h2 class="section-title">Commitments we intend to be held to.</h2>
     <div class="compare-closing">
-      <p>Three gaps prompted Akriti, stated as precisely as we can:</p>
       <ol>
-        <li><strong>Statistical inference for diagrams lives in R, not Python.</strong> The <code>TDA</code>, <code>TDAstats</code> and <code>tdaverse</code> packages have offered permutation tests and bootstrap confidence sets for years. Python users have had essentially nothing.</li>
-        <li><strong>No library, in any language, calculates sample size for a topological effect.</strong> <em>"How many samples do I need to detect a bottleneck-distance difference of size δ?"</em> is a question applied statistics answers routinely, and topology has never answered at all.</li>
-        <li><strong>Python's general-purpose TDA layer has gone quiet.</strong> giotto-tda has had no commits since 2024 while still being installed thousands of times a month. Its users deserve somewhere maintained to land.</li>
+        <li><strong>We delegate computation.</strong> Persistence, bottleneck and Wasserstein distances go to GUDHI, Ripser and Hera. We do not reimplement them, and we will not. Reinventing the engines is how library projects die.</li>
+        <li><strong>We implement other people's methods.</strong> A method's home should not depend on who wrote it. If it is published, useful, and unimplemented in Python, it belongs here — cited and benchmarked honestly against the alternatives, including ours.</li>
+        <li><strong>We interoperate before we compete.</strong> If something here does not work cleanly with your library, that is our bug. Maintainers of neighbouring projects are the contributors we most want.</li>
+        <li><strong>We say what we do not know.</strong> Where our theory supports a default, we take it and explain why. Where it provably does not, we say so and point at cross-validation. Guardrails, not autopilot.</li>
+        <li><strong>We stay installable.</strong> One command, no compiler, on every platform. The default dependency closure stays permissively licensed; copyleft backends are opt-in and documented at the install boundary.</li>
+        <li><strong>We take maintenance seriously.</strong> Signed releases, a published security policy, an audited dependency tree, and more than one maintainer at more than one institution — because the failure mode in this field is not bad code, it is abandonment.</li>
       </ol>
-      <p>GUDHI is healthy, actively released, and the backend we depend on. Ripser, Hera, persim, scikit-tda and the R <code>tdaverse</code> are the shoulders this stands on. We ship a complement, not a replacement — and we would far rather interoperate than compete.</p>
     </div>
   </div>
 </section>
@@ -240,26 +256,48 @@ ul.task-list li input[type="checkbox"] {
 <span class="n">test</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">two_sample</span><span class="o">(</span><span class="n">group_A</span><span class="o">,</span> <span class="n">group_B</span><span class="o">)</span>
 <span class="b">print</span><span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="n">p_value</span><span class="o">,</span> <span class="n">test</span><span class="o">.</span><span class="n">effect_size</span><span class="o">)</span>
 
-<span class="c"># ── How much data would I have needed? ─────────────────────</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">sample_size</span><span class="o">(</span><span class="n">effect</span><span class="o">=</span><span class="m">0.1</span><span class="o">,</span> <span class="n">power</span><span class="o">=</span><span class="m">0.8</span><span class="o">,</span> <span class="n">pilot</span><span class="o">=</span><span class="n">D</span><span class="o">)</span>
+<span class="c"># ── How much data would I have needed? ────────────────────────</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">sample_size</span><span class="o">(</span><span class="n">effect</span><span class="o">=</span><span class="n">0.1</span><span class="o">,</span> <span class="n">power</span><span class="o">=</span><span class="n">0.8</span><span class="o">,</span> <span class="n">pilot</span><span class="o">=</span><span class="n">D</span><span class="o">)</span>
 
-<span class="c"># ── A reporting card for the methods section ────────────────</span>
+<span class="c"># ── A reporting card for the methods section ──────────────────</span>
 <span class="b">print</span><span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="n">report</span><span class="o">())</span></pre>
+  </div>
+</section>
+<section class="akriti-section" id="contribute">
+  <div class="akriti-container">
+    <h3 class="section-heading">Contribute</h3>
+    <h2 class="section-title">This is the part that makes it an ecosystem.</h2>
+    <p class="lede">An ecosystem is not a licence declaration — it is other people's work, running alongside yours, under governance they can see. Akriti is early enough that joining now shapes what it becomes.</p>
+    <div class="compare-closing">
+      <ol>
+        <li><strong>Review the diagram interchange specification.</strong> If it does not fit your library's output, we would rather learn that now than after it ships. This is the single most useful thing a neighbouring maintainer can do.</li>
+        <li><strong>Have us implement your method.</strong> If you have published TDA statistics with no Python implementation, open an issue. We would rather host it, cited and attributed, than see it re-derived.</li>
+        <li><strong>Bring a dataset and a question.</strong> Case studies from domain scientists tell us what is missing far faster than we can guess.</li>
+        <li><strong>Teach with it.</strong> If you run a TDA course, we want to know what confused your students. That feedback is worth more than a feature request.</li>
+      </ol>
+      <p>Apache-2.0 throughout, with an explicit patent grant. Contributions are licensed inbound under the same terms, so there is no CLA to sign.</p>
+    </div>
+    <div class="community-banner">
+      <div class="text"><strong>Everything happens in the open.</strong> Issues, design discussion, the interchange specification, and the governance model all live on GitHub.</div>
+      <a href="https://github.com/akritihq">Join us on GitHub →</a>
+    </div>
   </div>
 </section>
 <section class="akriti-section" id="team">
   <div class="akriti-container">
     <h3 class="section-heading">Team</h3>
+    <h2 class="section-title">Maintained across two institutions, by design.</h2>
+    <p class="lede" style="font-size:15px;color:#555;">The most common way scientific software fails is that one person stops. Akriti is deliberately maintained by more than one person at more than one university.</p>
     <div class="team-grid">
       <div class="team-card">
         <div class="avatar">
           <img src="branding/team/sushovan-majhi.jpg" alt="Portrait of Sushovan Majhi" loading="lazy" onerror="this.remove()">
           <span class="initials" aria-hidden="true">SM</span>
         </div>
-        <div class="role">Lead PI</div>
+        <div class="role">Lead</div>
         <div class="name">Sushovan Majhi</div>
         <div class="affil">Data Science · GW</div>
-        <div class="owns">Library architecture · API design · project execution.</div>
+        <div class="owns">Architecture · API design · project execution.</div>
       </div>
       <div class="team-card">
         <div class="avatar">
@@ -269,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
         <div class="role">Co-PI</div>
         <div class="name">Pramita Bagchi</div>
         <div class="affil">Biostatistics</div>
-        <div class="owns">Practitioner statistics · bio adoption channel.</div>
+        <div class="owns">Practitioner statistics · applied adoption.</div>
       </div>
       <div class="team-card">
         <div class="avatar">
@@ -313,17 +351,27 @@ ul.task-list li input[type="checkbox"] {
       </div>
     </div>
     <div class="community-banner">
-      <div class="text"><strong>And built by an open community.</strong> Akriti is Apache-2.0. We welcome bug reports, pull requests, new vectorisations, integrations, and case studies.</div>
+      <div class="text"><strong>And by an open community.</strong> Contributors are listed as they arrive. If you are reading this early, there is room.</div>
       <a href="https://github.com/akritihq">Contribute on GitHub →</a>
     </div>
   </div>
 </section>
 <section class="akriti-section" id="research">
   <div class="akriti-container">
-    <h3 class="section-heading">Founding research</h3>
-    <h2 class="section-title">The papers behind the library.</h2>
-    <p class="lede" style="font-size:15px;color:#555;">Akriti is grounded in four research papers from the founding team. CASTLE is the practitioner-facing product; the others are the machinery that makes its guarantees possible.</p>
+    <h3 class="section-heading">Where it started</h3>
+    <h2 class="section-title">Founded on our own research. Not limited to it.</h2>
+    <p class="lede" style="font-size:15px;color:#555;">Akriti began as the software behind four papers from our group, and those results remain the statistical core. But an ecosystem that implements only its founders' work is a library with ambitions — the roadmap deliberately includes methods we did not write.</p>
     <div class="papers-grid">
+      <div class="paper-card">
+        <div class="tag">CASTLE · Paper IV</div>
+        <div class="title">A Practitioner's Toolkit for Topological Two-Sample Testing, Sample-Size Calculation, and Robustness Certification</div>
+        <div class="meta">In preparation · 2026</div>
+      </div>
+      <div class="paper-card">
+        <div class="tag">Paper III</div>
+        <div class="title">A Statistical-Inference Pipeline for Persistence-Landmark Kernels: CLT, Berry–Esseen, and Functional Limits</div>
+        <div class="meta">In preparation · 2026</div>
+      </div>
       <div class="paper-card">
         <div class="tag">PLACE · Paper I</div>
         <div class="title">A Closed-Form Persistence-Landmark Pipeline for Certified Point-Cloud and Graph Classification</div>
@@ -334,20 +382,10 @@ ul.task-list li input[type="checkbox"] {
         <div class="title">Adaptive Landmark Embeddings for Persistence Diagrams: Closed-Form Mahalanobis Selection and Per-Prediction Certificates</div>
         <div class="meta">JMLR · 2026 (under review)</div>
       </div>
-      <div class="paper-card">
-        <div class="tag">Paper III</div>
-        <div class="title">A Statistical-Inference Pipeline for Persistence-Landmark Kernels: CLT, Berry–Esseen, and Functional Limits</div>
-        <div class="meta">In preparation · 2026</div>
-      </div>
-      <div class="paper-card">
-        <div class="tag">CASTLE · Paper IV</div>
-        <div class="title">A Practitioner's Toolkit for Topological Two-Sample Testing, Sample-Size Calculation, and Robustness Certification</div>
-        <div class="meta">In preparation · 2026</div>
-      </div>
     </div>
     <div class="built-on">
-      <h4>Built on</h4>
-      <p>Akriti delegates persistence computation to <a href="https://gudhi.inria.fr/">GUDHI</a> (INRIA) and <a href="https://ripser.scikit-tda.org/">Ripser</a>, and builds on the landmark embedding of <a href="https://arxiv.org/abs/2402.04860">Mitra &amp; Virk (2024)</a>. We are grateful to the broader topological data analysis community — <a href="https://giotto-ai.github.io/gtda-docs/">giotto-tda</a>, <a href="https://persim.scikit-tda.org/">persim</a>, <a href="https://ripser.scikit-tda.org/">ripser.py</a>, the R <a href="https://github.com/tdaverse">tdaverse</a>, and the many inference, vectorisation and stability results the library stands on.</p>
+      <h4>Standing on</h4>
+      <p>Akriti delegates persistence computation to <a href="https://gudhi.inria.fr/">GUDHI</a> (INRIA), <a href="https://ripser.scikit-tda.org/">Ripser</a> and <a href="https://github.com/anigmetov/hera">Hera</a>, and builds on the landmark embedding of <a href="https://arxiv.org/abs/2402.04860">Mitra &amp; Virk (2024)</a>. It exists because of work done across the topological data analysis community — <a href="https://scikit-tda.org/">scikit-tda</a>, <a href="https://persim.scikit-tda.org/">persim</a>, <a href="https://giotto-ai.github.io/gtda-docs/">giotto-tda</a>, the R <a href="https://github.com/tdaverse">tdaverse</a>, and decades of inference, vectorisation and stability results we did not produce.</p>
       <p style="margin-top:12px;color:#666;font-size:13px;"><em>A "Publications using Akriti" section will appear here as case studies are published.</em></p>
     </div>
   </div>
@@ -368,8 +406,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
- <!-- /main -->
- <!-- /content -->
+</main> <!-- /main -->
+</div> <!-- /content -->
 
 
 
