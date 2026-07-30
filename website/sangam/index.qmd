@@ -1,0 +1,357 @@
+---
+pagetitle: "Sangam 2027 — a topological data analysis school and research meeting"
+description: "Sangam 2027: a proposed five-day school and research meeting in topological data analysis at IIT Mandi, Kamand, 14–18 June 2027, immediately before SoCG 2027 at IISc Bangalore. Convened with Akriti."
+format:
+  html:
+    page-layout: full
+    toc: false
+    anchor-sections: false
+---
+
+<!-- Sangam 2027. Pre-launch skeleton; unsettled items carry a `tbc` chip.
+     Publication checklist and rationale are kept privately, not shipped here. -->
+
+```{=html}
+<nav class="akriti-nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand" aria-label="Akriti — home">
+      <img src="/branding/akriti-mark-dark.svg" alt="" class="nav-mark">
+      <span class="nav-wordmark">ĀKRITI</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#why">Why</a></li>
+      <li><a href="/#parts">Parts</a></li>
+      <li><a href="/#contribute">Contribute</a></li>
+      <li><a href="/teach/">Teach</a></li>
+      <li><a href="/sangam/" class="active">Sangam</a></li>
+    </ul>
+    <a href="https://huggingface.co/spaces/akritihq/try" class="nav-try" target="_blank" rel="noopener">
+      Try&nbsp;<span aria-hidden="true">↗</span>
+    </a>
+    <a href="https://github.com/akritihq" class="nav-github" aria-label="Akriti on GitHub" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.11.79-.25.79-.56 0-.28-.01-1.01-.02-1.99-3.2.69-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/>
+      </svg>
+    </a>
+  </div>
+</nav>
+```
+
+```{=html}
+<section class="sangam-hero">
+  <div class="akriti-container">
+    <div class="sg-kicker">A school and research meeting in topological data analysis</div>
+    <h1 class="sangam-title">Sangam<span class="sg-year">2027</span></h1>
+    <p class="sg-gloss"><span class="sg-deva">संगम</span> <span class="sg-translit">saṅgama · Sanskrit, n.</span> — a confluence: the place where rivers meet.</p>
+    <p class="sg-when">14 – 18 June 2027 · IIT Mandi, Kamand, Himachal Pradesh <span class="tbc">venue tbc</span></p>
+    <p class="sg-lede">Five days: mornings are a hands-on school, afternoons are a research meeting, and everyone is in the same room for both. Held the week before <a href="https://www.computational-geometry.org/cg-week/">SoCG&nbsp;/&nbsp;CG&nbsp;Week 2027</a> at IISc Bangalore — the first SoCG in India — so that students can continue on to the conference and lecturers can combine the two trips.</p>
+    <p class="sg-lede">This is the first Sangam. We intend to run it every year.</p>
+    <div class="badges">
+      <span class="badge primary">Proposed · nothing yet confirmed</span>
+      <span class="badge">Inaugural edition</span>
+      <span class="badge">~40 students</span>
+      <span class="badge">Satellite of SoCG 2027</span>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="status">
+  <div class="akriti-container">
+    <div class="status-notice">
+      <div class="sn-flag">Planning stage</div>
+      <div class="sn-body">
+        <p><strong>This event is proposed, not scheduled.</strong> The host agreement, the venue, the funding and every invitation are still to come. Dates, programme and committee below are a working plan and will change.</p>
+        <p class="sn-sub">Items still to be settled are marked <span class="tbc">tbc</span> throughout. Applications are expected to open in <strong>January 2027</strong>; there is nothing to apply to yet. If you would like to hear when there is, write to <a href="mailto:hello@akriti.io">hello@akriti.io</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="glance">
+  <div class="akriti-container">
+    <h3 class="section-heading">At a glance</h3>
+    <h2 class="section-title">One week, two halves, no parallel sessions.</h2>
+    <div class="lesson-meta">
+      <div><span class="meta-k">Dates</span><span class="meta-v">Mon 14 – Fri 18 June 2027</span></div>
+      <div><span class="meta-k">Venue</span><span class="meta-v">IIT Mandi, Kamand <span class="tbc">tbc</span></span></div>
+      <div><span class="meta-k">Cohort</span><span class="meta-v">~40 students <span class="tbc">tbc</span></span></div>
+      <div><span class="meta-k">Applications</span><span class="meta-v">Open Jan 2027</span></div>
+    </div>
+    <p class="lede">The school and the research meeting are interleaved rather than run back to back. Students attend both halves; speakers have every morning free and miss no talk. There are no parallel sessions — a programme where the lecturers are in the room for the research talks is what makes the rest of the design work.</p>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-name">Mornings · <em>school</em></div>
+        <div class="cap-title">One lecturer, one chapter</div>
+        <div class="cap-body">A single lecturer owns the whole morning, alternating teaching with hands-on work rather than lecturing first and running a lab afterwards. Five mornings, five topics, ~8 hours of teaching against ~12 hours at the keyboard.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">Afternoons · <em>research meeting</em></div>
+        <div class="cap-title">Talks, then a digest</div>
+        <div class="cap-body">Four talk slots, a block of five-minute flash talks, and then a <strong>talk digest</strong> — thirty minutes in which one of the school lecturers unpacks the afternoon's talks in the vocabulary the students have by that point.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">Evenings · <em>discussion</em></div>
+        <div class="cap-title">Laptops, not posters</div>
+        <div class="cap-body">Flash-talk presenters sit with their laptops open, refreshments out, and people circulate. It keeps the one-to-one conversation a poster session gives you, without asking students to carry print tubes across the country.</div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="programme">
+  <div class="akriti-container">
+    <h3 class="section-heading">Programme</h3>
+    <h2 class="section-title">The five school mornings.</h2>
+    <p class="lede">Topics are sequenced so that each morning is usable by the afternoon. Lecturers are <span class="tbc">tbc</span> — the people below are the proposed line-up and have not all been asked yet.</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Day</th><th>Topic</th><th>Lecturer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Mon</strong></td><td>Foundations — simplicial complexes, homology, filtrations</td><td>Samir Shukla <span class="tbc">tbc</span></td></tr>
+          <tr><td><strong>Tue</strong></td><td>Persistent homology — stability and distances</td><td>Sushovan Majhi</td></tr>
+          <tr><td><strong>Wed</strong></td><td>Computation at scale — collapses, sparsification, software internals</td><td>Siddharth Pritam <span class="tbc">tbc</span></td></tr>
+          <tr><td><strong>Thu</strong></td><td>Shapes and graphs — Mapper, Reeb graphs, reconstruction</td><td>Atish Mitra <span class="tbc">tbc</span></td></tr>
+          <tr><td><strong>Fri</strong></td><td>Statistics, machine learning and applications</td><td>Majhi · Md. Nurujjaman <span class="tbc">tbc</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="font-size:15px;color:var(--text-muted);margin-top:28px;">Thursday is what makes this a SoCG satellite rather than a generic TDA school: Mapper, Reeb graphs and reconstruction are where topology meets computational geometry, and they are what let a student follow talks at CG Week the following week. Friday's applications block runs on a published Euler-characteristic-surfaces pipeline, taught by two of its authors, with the original data.</p>
+
+    <h2 class="section-title" style="margin-top:56px;">A day, hour by hour.</h2>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Time</th><th>Morning — school</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>08:00 – 08:50</td><td>Teaching segment 1</td></tr>
+          <tr><td>08:50 – 09:35</td><td>Hands-on 1</td></tr>
+          <tr><td>09:35 – 09:55</td><td>Coffee</td></tr>
+          <tr><td>09:55 – 10:45</td><td>Teaching segment 2</td></tr>
+          <tr><td>10:45 – 11:30</td><td>Hands-on 2</td></tr>
+          <tr><td>11:45 – 12:45</td><td>Consolidation — the day's main exercise, lecturer and TAs circulating</td></tr>
+          <tr><td>12:45 – 14:00</td><td>Lunch</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-table-wrap" style="margin-top:14px;">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Time</th><th>Afternoon — research meeting</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>14:00 – 16:30</td><td>Four talk slots (tea 15:00)</td></tr>
+          <tr><td>16:30 – 17:05</td><td>Flash talks — seven × five minutes</td></tr>
+          <tr><td>17:05 – 17:35</td><td>Talk digest</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="font-size:15px;color:var(--text-muted);margin-top:28px;">Labs run in two parallel streams by background — same material, different pace. The admitted cohort will span motivated undergraduates to PhD students, and a single stream would be simultaneously too slow for a third of the room and too fast for another third. Wednesday afternoon is free: a half-day excursion to Rewalsar and Mandi town, with the lab room left open for anyone catching up. <span class="tbc">tbc</span></p>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="software">
+  <div class="akriti-container">
+    <h3 class="section-heading">Software</h3>
+    <h2 class="section-title">The labs run on Akriti.</h2>
+    <p class="lede">Akriti is an open ecosystem for topological data analysis in Python: one persistence-diagram format that every backend can speak, the statistical layer Python has been missing, and a maintained home for published TDA methods whoever wrote them. Computation is delegated to <a href="https://gudhi.inria.fr/">GUDHI</a> and <a href="https://ripser.scikit-tda.org/">Ripser</a> rather than reimplemented. Apache-2.0.</p>
+    <p class="lede" style="font-size:16px;color:var(--text-muted);">Using it across all five mornings means a student's Tuesday notebook still runs on Friday, and the code they write in the school is the code they take home. Everything is published afterwards, so the material outlives the week.</p>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-name">Before you arrive</div>
+        <div class="cap-title">Nothing to install</div>
+        <div class="cap-body">A preconfigured environment ships in advance and travels on USB sticks as well, because forty people cannot all reach the internet at once. Two online primer sessions in May 2027 cover the linear algebra, the topology vocabulary and the Python setup, so that contact hours go on TDA. <span class="tbc">tbc</span></div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">During the week</div>
+        <div class="cap-title">Teaching notebooks</div>
+        <div class="cap-body">Worked, annotated and self-explanatory — not exercise sheets that assume you caught everything in the lecture. Each lecturer's notebook is designed in lockstep with their teaching segments, as one artifact rather than slides handed to a TA.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">Afterwards</div>
+        <div class="cap-title">Yours to reuse</div>
+        <div class="cap-body">The full pack is released openly for anyone to teach from, alongside the existing <a href="/teach/">Akriti teaching pack</a>. Adapt it, run it in your own course, tell us what confused your students.</div>
+      </div>
+    </div>
+    <div class="community-banner">
+      <div class="text"><strong>If you maintain a TDA library, we would rather build on it than around it.</strong> The diagram interchange specification is public and open to comment, and a method with no Python implementation is welcome to have its home here — cited and attributed.</div>
+      <a href="https://github.com/akritihq">Akriti on GitHub →</a>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="speakers">
+  <div class="akriti-container">
+    <h3 class="section-heading">Research meeting</h3>
+    <h2 class="section-title">Speakers to be announced.</h2>
+    <p class="lede">Sixteen talk slots across four afternoons — two keynotes, twelve invited talks, and two panel or demo sessions — plus around twenty-eight flash talks selected from the applications. <strong>No invitations have gone out.</strong> First-wave invitations are planned for autumn 2026, and names will appear here only once they have been accepted.</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Format</th><th>Slot</th><th>Talk</th><th>Questions</th><th>Count</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Keynote</strong></td><td>45 min</td><td>40</td><td>5</td><td>2</td></tr>
+          <tr><td><strong>Invited</strong></td><td>30 min</td><td>25</td><td>5</td><td>12</td></tr>
+          <tr><td><strong>Panel / demo</strong></td><td>40 min</td><td>—</td><td>—</td><td>2</td></tr>
+          <tr><td><strong>Flash talk</strong></td><td>5 min</td><td>5</td><td>—</td><td>~28</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="font-size:15px;color:var(--text-muted);margin-top:28px;">Talks are ordered by accessibility across the week — surveys and expository talks early, technical talks on Thursday and Friday, by which point students have had eight teaching segments behind them. Some talks will still go over some heads. That is deliberate: hearing what the frontier sounds like is part of what a week like this is for.</p>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="apply">
+  <div class="akriti-container">
+    <h3 class="section-heading">Students</h3>
+    <h2 class="section-title">Who this is for.</h2>
+    <p class="lede">Around forty places, open from motivated undergraduates through to PhD students. Applications are expected to open in <strong>January 2027</strong> — a CV, a short statement, and a note from an advisor. <span class="tbc">final cohort size and process tbc</span></p>
+    <div class="upcoming-grid">
+      <div class="upcoming">
+        <span class="up-num">01</span>
+        <span class="up-title">Linear algebra, and comfort with Python</span>
+        <span class="up-status">required</span>
+      </div>
+      <div class="upcoming">
+        <span class="up-num">02</span>
+        <span class="up-title">Some topology</span>
+        <span class="up-status">helpful</span>
+      </div>
+      <div class="upcoming">
+        <span class="up-num">03</span>
+        <span class="up-title">Places held for the Northeast and non-metro institutions</span>
+        <span class="up-status">reserved</span>
+      </div>
+      <div class="upcoming">
+        <span class="up-num">04</span>
+        <span class="up-title">Flash-talk slots, chosen from the applications</span>
+        <span class="up-status">open to all</span>
+      </div>
+    </div>
+    <p class="lede" style="font-size:15px;color:var(--text-muted);margin-top:28px;">Most students who give a flash talk will never have given a timed talk before, so a TA-led rehearsal hour runs on the Monday evening. Two lightning slots at the companion CG Week workshop are reserved for the strongest school students. <span class="tbc">workshop proposal not yet submitted</span></p>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="venue">
+  <div class="akriti-container">
+    <h3 class="section-heading">Where</h3>
+    <h2 class="section-title">Kamand, Himachal Pradesh.</h2>
+    <p class="lede">The proposed venue is the Kamand campus of the <strong>Indian Institute of Technology Mandi</strong>, in the Himalayan foothills about 14 km above Mandi town at around a thousand metres — roughly 15–25 °C in June. Everyone is housed on campus with the mess on site, which is the only reason an 08:00 start is reasonable. <span class="tbc">hosting request not yet made; hostel capacity unverified</span></p>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-name">Getting there</div>
+        <div class="cap-title">Via Chandigarh</div>
+        <div class="cap-body">Coaches from Chandigarh to Kamand on the Sunday, and back at the end of the week. Detailed travel guidance, visa support letters and a group booking will follow once the event is confirmed. <span class="tbc">tbc</span></div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">And afterwards</div>
+        <div class="cap-title">On to Bangalore</div>
+        <div class="cap-body">SoCG 2027 and CG Week run 21–25 June at IISc Bangalore, leaving the weekend to travel. A half-day CG Week workshop on topology and computational geometry is planned as a companion event. <span class="tbc">proposal pending</span></div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name">Midweek</div>
+        <div class="cap-title">Rewalsar and Mandi</div>
+        <div class="cap-body">Wednesday afternoon: the pilgrimage lake at Rewalsar, sacred to Buddhists, Hindus and Sikhs, and the old temples of Mandi town — about 25 km, back by early evening. Optional. <span class="tbc">tbc</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="committee">
+  <div class="akriti-container">
+    <h3 class="section-heading">Organisers</h3>
+    <h2 class="section-title">Proposed organising committee.</h2>
+    <p class="lede" style="font-size:15px;color:var(--text-muted);">Memberships are not yet confirmed — this is the line-up the proposal is being built around.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="role">Lead</div>
+        <div class="name">Sushovan Majhi</div>
+        <div class="affil">Data Science · GW</div>
+        <div class="owns">Programme · CG Week companion workshop.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">Local host <span class="tbc">tbc</span></div>
+        <div class="name">Samir Shukla</div>
+        <div class="affil">Mathematical &amp; Statistical Sciences · IIT Mandi</div>
+        <div class="owns">Venue · local organisation · funding.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">Programme <span class="tbc">tbc</span></div>
+        <div class="name">Siddharth Pritam</div>
+        <div class="affil">CMI</div>
+        <div class="owns">Programme · computational geometry network.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">Programme <span class="tbc">tbc</span></div>
+        <div class="name">Atish Mitra</div>
+        <div class="affil">Mathematics · Montana Tech</div>
+        <div class="owns">Programme · lecture-notes volume.</div>
+      </div>
+      <div class="team-card">
+        <div class="role">Applications <span class="tbc">tbc</span></div>
+        <div class="name">Md. Nurujjaman</div>
+        <div class="affil">NIT Sikkim</div>
+        <div class="owns">Applications sessions · outreach.</div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="volume">
+  <div class="akriti-container">
+    <h3 class="section-heading">Afterwards</h3>
+    <h2 class="section-title">An edited volume, in two parts.</h2>
+    <p class="lede">The school produces a book, not just a week. It is planned for <strong>Applied Geometry &amp; Topology</strong> (Chapman &amp; Hall/CRC), in two parts: five chapters of lecture notes, one per school day, and a set of refereed research contributions from speakers who wish to contribute. <span class="tbc">tbc</span></p>
+    <p class="lede" style="font-size:15px;color:var(--text-muted);">Deciding this at the outset changes how the school is prepared — lecturers write chapter-quality notes rather than slides — and it is the part of the week that is still useful to the next cohort. It is an edited volume with an open invitation to contribute, not proceedings: nobody should expect to find every talk in it.</p>
+  </div>
+</section>
+```
+
+```{=html}
+<section class="akriti-section" id="contact">
+  <div class="akriti-container">
+    <div class="community-banner">
+      <div class="text"><strong>Nothing is open yet.</strong> Applications are expected in January 2027. To be told when they are — or to talk about speaking, hosting or supporting the week — get in touch.</div>
+      <a href="mailto:hello@akriti.io">hello@akriti.io →</a>
+    </div>
+  </div>
+</section>
+```
+
+```{=html}
+<footer class="akriti-footer">
+  <div class="akriti-container">
+    <div class="seal">
+      <span class="latin">AKRITI</span>
+      <span class="dot"></span>
+      <span class="deva">आकृति</span>
+    </div>
+    <div class="footer-meta">
+      <span class="row">Sangam 2027 · proposed · © 2026 Akriti contributors</span>
+      <span class="row"><a href="/">akriti.io</a> · <a href="https://github.com/akritihq">github.com/akritihq</a> · <a href="mailto:hello@akriti.io">hello@akriti.io</a></span>
+    </div>
+  </div>
+</footer>
+```
