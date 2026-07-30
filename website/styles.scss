@@ -1179,3 +1179,11 @@ img, .figure-img, figure img {
 
 /* The committee cards carry no portraits, so drop the avatar row's gap. */
 #committee .team-card { padding-top: 24px; }
+
+/* Placeholder for a person or role not yet confirmed. Deliberately quiet —
+   it should read as "not filled in", not as an announcement. */
+.tbd {
+  color: var(--text-faint);
+  font-style: italic;
+  font-weight: 400;
+}

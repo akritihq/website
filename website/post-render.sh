@@ -16,4 +16,16 @@ rsync -a --delete --exclude '.DS_Store' "$REPO_ROOT/branding/" "$OUT_DIR/brandin
 # Ensure CNAME (akriti.io) is preserved at the docs/ root for GitHub Pages.
 cp -f "$WEBSITE_DIR/_static/CNAME" "$OUT_DIR/CNAME"
 
+# Drop provisional pages from the sitemap. They carry <meta robots="noindex">,
+# and listing a page we are asking crawlers to ignore is a contradiction.
+# Reachable by direct URL; simply not advertised. Remove a page from this list
+# once it is announced.
+NOINDEX_PAGES=( "sangam" )
+for page in "${NOINDEX_PAGES[@]}"; do
+  if grep -q "/$page/" "$OUT_DIR/sitemap.xml" 2>/dev/null; then
+    perl -0pi -e "s{\s*<url>\s*<loc>[^<]*/$page/[^<]*</loc>.*?</url>}{}gs" "$OUT_DIR/sitemap.xml"
+    echo "post-render: removed /$page/ from sitemap.xml (noindex)"
+  fi
+done
+
 echo "post-render: copied branding/ and CNAME into $OUT_DIR"
