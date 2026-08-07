@@ -19,7 +19,8 @@ cp -f "$WEBSITE_DIR/_static/CNAME" "$OUT_DIR/CNAME"
 # Sangam 2027 is a hand-written standalone page, not a Quarto document — it has
 # its own theme and shares nothing with the rest of the site. Quarto has no say
 # over it; we simply copy it into place after each render.
-rsync -a --delete --exclude '.DS_Store' "$WEBSITE_DIR/_static/sangam/" "$OUT_DIR/sangam/"
+rsync -a --delete --exclude '.DS_Store' --exclude 'README.md' \
+  "$WEBSITE_DIR/_static/sangam/" "$OUT_DIR/sangam/"
 echo "post-render: copied _static/sangam/ into $OUT_DIR/sangam"
 
 # Drop provisional pages from the sitemap. They carry <meta robots="noindex">,
