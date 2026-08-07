@@ -546,6 +546,18 @@ td.num { font-variant-numeric: tabular-nums; }
 .person .name a:hover { color: #A8641F; border-bottom-color: var(--sun); }
 .person .affil { font-size: var(--t-small); color: var(--ink-muted); margin: 0; }
 
+/* A designation, shown only where someone holds one. Deliberately quieter
+   than the name and the affiliation — this is a note, not a rank, and the
+   committee is otherwise listed flat. */
+.person .note {
+  margin: 10px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9A6B2F;
+}
+
 /* ── Call-out band ───────────────────────────────────────────────────────── */
 
 .callout {
