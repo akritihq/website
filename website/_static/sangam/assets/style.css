@@ -37,6 +37,7 @@
   --measure: 1120px;
   --gutter:  clamp(20px, 5vw, 48px);
   --band:    clamp(64px, 9vw, 112px);
+  --nav-h:   56px;
 }
 
 * { box-sizing: border-box; }
@@ -83,20 +84,38 @@ h1, h2, h3 {
 
 /* ── Top navigation ──────────────────────────────────────────────────────── */
 
+/* Transparent over the banner, frosted once the sky has scrolled away.
+   Fully transparent throughout would be prettier for two seconds and then
+   unreadable, since section text passes under a sticky bar. */
 .topnav {
   position: sticky;
   top: 0;
   z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 220ms ease, border-color 220ms ease,
+              backdrop-filter 220ms ease;
+}
+
+.topnav.scrolled {
   background: rgba(253, 251, 247, 0.82);
   backdrop-filter: blur(12px) saturate(1.4);
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
-  border-bottom: 1px solid rgba(231, 223, 209, 0.7);
+  border-bottom-color: rgba(231, 223, 209, 0.7);
+}
+
+/* Over the sky the muted link colour drops to about 2.8:1, so lift the links
+   to full ink and float them on a faint light halo while the bar is clear. */
+.topnav:not(.scrolled) a {
+  color: var(--ink);
+  text-shadow: 0 1px 3px rgba(253, 251, 247, 0.65);
 }
 
 .nav-inner {
   max-width: var(--measure);
   margin-inline: auto;
-  padding: 12px var(--gutter);
+  height: var(--nav-h);
+  padding-inline: var(--gutter);
   display: flex;
   align-items: center;
   gap: 24px;
@@ -141,7 +160,7 @@ h1, h2, h3 {
 }
 
 /* The sticky bar would otherwise land on top of an anchored heading. */
-section { scroll-margin-top: 68px; }
+section { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
 @media (max-width: 620px) {
   .nav-inner { gap: 16px; padding-inline: 20px; }
@@ -151,6 +170,7 @@ section { scroll-margin-top: 68px; }
 /* ── Banner ──────────────────────────────────────────────────────────────── */
 
 .banner {
+  margin-top: calc(-1 * var(--nav-h));
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -184,7 +204,7 @@ section { scroll-margin-top: 68px; }
 }
 
 .banner-inner {
-  padding-block: clamp(52px, 8vw, 104px) clamp(28px, 5vw, 52px);
+  padding-block: calc(clamp(52px, 8vw, 104px) + var(--nav-h)) clamp(28px, 5vw, 52px);
   max-width: 74ch;
 }
 
