@@ -486,29 +486,53 @@ td.num { font-variant-numeric: tabular-nums; }
 
 .people {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 14px;
   margin-top: 32px;
 }
-@media (min-width: 600px) { .people { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 940px) { .people { grid-template-columns: repeat(4, 1fr); } }
 .person {
-  padding: 22px 20px;
+  padding: 24px 20px;
   background: var(--surface-hi);
   border: 1px solid var(--rule);
   border-radius: 10px;
+  text-align: center;
 }
-.person .role {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+
+/* Photo where we have one, initials where we do not. The img removes itself
+   on error, so dropping a file into branding/team/ is all it takes to fill a
+   gap — no markup change. */
+.avatar {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--sun-soft);
+  border: 1px solid var(--rule-strong);
+  display: grid;
+  place-items: center;
+}
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.avatar .initials {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   color: #9A6B2F;
-  margin-bottom: 8px;
 }
-.person .name { font-weight: 600; font-size: 1.02rem; }
-.person .affil { font-size: var(--t-small); color: var(--ink-muted); margin-top: 2px; }
-.person .owns { font-size: var(--t-small); color: var(--ink-faint); margin-top: 12px; }
+
+.person .name { font-weight: 600; font-size: 1rem; margin: 0; }
+.person .name a { color: var(--ink); border-bottom-color: transparent; }
+.person .name a:hover { color: #A8641F; border-bottom-color: var(--sun); }
+.person .affil { font-size: var(--t-small); color: var(--ink-muted); margin: 4px 0 0; }
 
 /* ── Call-out band ───────────────────────────────────────────────────────── */
 
