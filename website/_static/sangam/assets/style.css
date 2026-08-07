@@ -486,7 +486,7 @@ td.num { font-variant-numeric: tabular-nums; }
 
 .people {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
   gap: 14px;
   margin-top: 32px;
 }
@@ -546,17 +546,21 @@ td.num { font-variant-numeric: tabular-nums; }
 .person .name a:hover { color: #A8641F; border-bottom-color: var(--sun); }
 .person .affil { font-size: var(--t-small); color: var(--ink-muted); margin: 0; }
 
-/* A designation, shown only where someone holds one. Deliberately quieter
-   than the name and the affiliation — this is a note, not a rank, and the
-   committee is otherwise listed flat. */
-.person .note {
-  margin: 10px 0 0;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+/* Group headings within the organisers section. Each labelled row is its own
+   .people grid, so a single-member group keeps the same card width as a full
+   one — hence auto-fill rather than auto-fit above. */
+.group-label {
+  margin: 40px 0 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #9A6B2F;
+  color: var(--ink-faint);
 }
+.group-label + .people { margin-top: 16px; }
+.group-empty { margin-top: 16px; }
 
 /* ── Call-out band ───────────────────────────────────────────────────────── */
 
