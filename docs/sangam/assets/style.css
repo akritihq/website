@@ -486,32 +486,33 @@ td.num { font-variant-numeric: tabular-nums; }
 
 .people {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
   gap: 14px;
   margin-top: 32px;
 }
+
+/* Follows the team-card treatment on akriti.io: left-aligned, circular
+   avatar, initials sitting behind the image so they surface only when it
+   fails. Smaller here — these cards carry a name and an affiliation, not a
+   role and a paragraph of duties. */
 .person {
-  padding: 24px 20px;
+  padding: 22px 20px;
   background: var(--surface-hi);
   border: 1px solid var(--rule);
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 12px;
+  transition: border-color 160ms ease;
 }
+.person:hover { border-color: var(--rule-strong); }
 
-/* Photo where we have one, initials where we do not. The img removes itself
-   on error, so dropping a file into branding/team/ is all it takes to fill a
-   gap — no markup change. */
 .avatar {
   position: relative;
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 14px;
+  width: 64px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   background: var(--sun-soft);
   border: 1px solid var(--rule-strong);
-  display: grid;
-  place-items: center;
+  margin-bottom: 16px;
 }
 .avatar img {
   position: absolute;
@@ -522,17 +523,28 @@ td.num { font-variant-numeric: tabular-nums; }
   z-index: 1;
 }
 .avatar .initials {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Fraunces", Georgia, serif;
-  font-size: 1.35rem;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
   color: #9A6B2F;
+  z-index: 0;   /* behind the image; visible only once the image removes itself */
 }
 
-.person .name { font-weight: 600; font-size: 1rem; margin: 0; }
+.person .name {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  margin: 0 0 4px;
+}
 .person .name a { color: var(--ink); border-bottom-color: transparent; }
 .person .name a:hover { color: #A8641F; border-bottom-color: var(--sun); }
-.person .affil { font-size: var(--t-small); color: var(--ink-muted); margin: 4px 0 0; }
+.person .affil { font-size: var(--t-small); color: var(--ink-muted); margin: 0; }
 
 /* ── Call-out band ───────────────────────────────────────────────────────── */
 
