@@ -40,84 +40,10 @@
 </nav>
 
 <header class="banner" id="top">
-  <div class="banner-art" aria-hidden="true">
-    <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" role="presentation">
-      <defs>
-        <linearGradient id="sky" x1="0" y1="0" x2="0.25" y2="1">
-          <stop offset="0%"   stop-color="#8FA3D0"/>
-          <stop offset="26%"  stop-color="#B6AECB"/>
-          <stop offset="48%"  stop-color="#DCB9B8"/>
-          <stop offset="68%"  stop-color="#F0C69C"/>
-          <stop offset="86%"  stop-color="#F9DEBD"/>
-          <stop offset="100%" stop-color="#FCEEDA"/>
-        </linearGradient>
-        <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%"   stop-color="#FFEEC8" stop-opacity="0.98"/>
-          <stop offset="30%"  stop-color="#FFDCA0" stop-opacity="0.55"/>
-          <stop offset="62%"  stop-color="#F8C489" stop-opacity="0.20"/>
-          <stop offset="100%" stop-color="#F4B27A" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="haze" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stop-color="#FCE8CE" stop-opacity="0"/>
-          <stop offset="100%" stop-color="#FCE8CE" stop-opacity="0.66"/>
-        </linearGradient>
-        <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stop-color="#FDF2E2" stop-opacity="0.72"/>
-          <stop offset="100%" stop-color="#FDF2E2" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0.35">
-          <stop offset="0%"   stop-color="#FDFBF7" stop-opacity="0.44"/>
-          <stop offset="42%"  stop-color="#FDFBF7" stop-opacity="0.20"/>
-          <stop offset="100%" stop-color="#FDFBF7" stop-opacity="0"/>
-        </linearGradient>
-        <filter id="grain">
-          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
-          <feColorMatrix type="saturate" values="0"/>
-        </filter>
-      </defs>
-
-      <rect width="1440" height="800" fill="url(#sky)"/>
-
-      <circle cx="1096" cy="286" r="270" fill="url(#glow)"/>
-      <circle cx="1096" cy="286" r="42" fill="#FFF0CE" opacity="0.95"/>
-
-      <ellipse cx="352"  cy="176" rx="196" ry="9"  fill="#FBE6D6" opacity="0.5"/>
-      <ellipse cx="466"  cy="204" rx="128" ry="6"  fill="#FBE6D6" opacity="0.38"/>
-      <ellipse cx="1004" cy="140" rx="164" ry="7"  fill="#FCEBDA" opacity="0.42"/>
-      <ellipse cx="1148" cy="188" rx="112" ry="5"  fill="#FCEBDA" opacity="0.3"/>
-
-      <path fill="#C3CCE6" d="M0,486 L54,452 L104,470 L158,404 L210,436 L268,338 L306,372 L352,326 L404,404 L452,376 L492,412 L548,358 L596,390 L654,304 L702,350 L752,318 L812,394 L866,360 L916,398 L978,340 L1024,376 L1082,310 L1134,352 L1192,326 L1250,402 L1302,368 L1358,408 L1408,382 L1440,414 L1440,800 L0,800 Z"/>
-      <path fill="#EFF2FA" opacity="0.85" d="M250,360 L268,338 L288,364 L279,357 L268,367 L259,354 Z"/>
-      <path fill="#EFF2FA" opacity="0.85" d="M334,350 L352,326 L372,354 L362,346 L352,356 L344,345 Z"/>
-      <path fill="#F3F5FC" opacity="0.9"  d="M632,334 L654,304 L678,338 L666,329 L654,341 L644,328 Z"/>
-      <path fill="#F3F5FC" opacity="0.9"  d="M1062,340 L1082,310 L1104,342 L1093,333 L1082,345 L1072,332 Z"/>
-      <path fill="#EFF2FA" opacity="0.8"  d="M1174,352 L1192,326 L1212,354 L1202,346 L1192,356 L1183,345 Z"/>
-      <rect y="300" width="1440" height="230" fill="url(#haze)"/>
-
-      <path fill="#A3ADCE" d="M0,540 L70,508 L130,532 L196,470 L254,502 L318,446 L370,486 L428,452 L486,506 L540,474 L600,514 L662,458 L716,498 L776,466 L840,516 L898,482 L958,520 L1018,468 L1076,506 L1140,472 L1200,518 L1262,486 L1326,524 L1390,494 L1440,522 L1440,800 L0,800 Z"/>
-      <rect y="440" width="1440" height="200" fill="url(#haze)" opacity="0.8"/>
-
-      <path fill="#7E88AE" d="M0,596 Q64,566 122,588 Q186,530 250,566 Q312,528 372,570 Q436,536 496,580 Q560,542 620,584 Q684,548 744,590 Q808,554 868,594 Q932,558 992,598 Q1056,562 1116,600 Q1180,566 1240,604 Q1304,572 1364,606 Q1408,586 1440,600 L1440,800 L0,800 Z"/>
-      <rect y="520" width="1440" height="190" fill="url(#haze)" opacity="0.55"/>
-
-      <path fill="#57608A" d="M0,650 Q80,626 160,646 Q240,614 320,644 Q400,616 480,650 Q560,622 640,652 Q720,626 800,656 Q880,630 960,658 Q1040,632 1120,660 Q1200,636 1280,664 Q1360,640 1440,666 L1440,800 L0,800 Z"/>
-      <rect y="590" width="1440" height="180" fill="url(#haze)" opacity="0.32"/>
-
-      <path fill="#333C63" d="M0,706 Q100,690 200,704 Q300,684 400,702 Q500,686 600,706 Q700,688 800,708 Q900,690 1000,710 Q1100,694 1200,712 Q1300,696 1400,714 Q1430,708 1440,712 L1440,800 L0,800 Z"/>
-
-      <rect y="668" width="1440" height="70" fill="url(#mist)"/>
-      <ellipse cx="330"  cy="694" rx="230" ry="13" fill="#FDF4E6" opacity="0.42"/>
-      <ellipse cx="980"  cy="704" rx="280" ry="12" fill="#FDF4E6" opacity="0.36"/>
-
-      <g fill="none" stroke="#4A5378" stroke-width="2.1" stroke-linecap="round" opacity="0.42">
-        <path d="M214,238 q11,-9 21,-1 q10,-8 21,1"/>
-        <path d="M286,196 q8,-7 16,-1 q8,-6 16,1"/>
-        <path d="M172,286 q6,-5 12,-1 q6,-5 12,1"/>
-      </g>
-
-      <rect width="1440" height="800" fill="url(#scrim)"/>
-      <rect width="1440" height="800" filter="url(#grain)" opacity="0.045" style="mix-blend-mode:multiply"/>
-    </svg>
+  <div class="banner-art">
+    <img src="assets/kamand.jpg"
+         alt="IIT Mandi seen from Griffon Peak: South Campus in the foreground, North Campus at left-centre, the Uhl valley between them and the snow-covered Dhauladhar range beyond."
+         fetchpriority="high" decoding="async">
   </div>
 
   <div class="wrap banner-inner">
@@ -339,6 +265,7 @@
       <span>Sangam 2027 · a research meeting in topological data analysis</span>
       <span>IIT Mandi, Kamand, Himachal Pradesh · 14–18 June 2027 · <a href="mailto:smajhi@gwu.edu">smajhi@gwu.edu</a></span>
       <span>Convened with support from <a href="/">Akriti</a>.</span>
+      <span class="credit">Banner: <a href="https://commons.wikimedia.org/wiki/File:IIT_Mandi_Campus_from_Griffon_Peak_Jan_2020_D72_13785.jpg">IIT Mandi from Griffon Peak</a> by Timothy A. Gonsalves, cropped and rescaled, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>.</span>
     </p>
   </div>
 </footer>
