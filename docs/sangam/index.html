@@ -9,11 +9,11 @@
      robots tag when the event is announced. -->
 <meta name="robots" content="noindex, nofollow">
 
-<title>Sangam 2027 — a topological data analysis school and research meeting</title>
-<meta name="description" content="Sangam 2027: a proposed five-day school and research meeting in topological data analysis at IIT Mandi, Kamand, 14–18 June 2027, the week before SoCG 2027 at IISc Bangalore.">
+<title>Sangam 2027 — a research meeting in topological data analysis</title>
+<meta name="description" content="Sangam 2027: a proposed research meeting in topological data analysis at IIT Mandi, Kamand, June 2027, the week before SoCG 2027 at IISc Bangalore.">
 
-<meta property="og:title" content="Sangam 2027 — a school and research meeting in topological data analysis">
-<meta property="og:description" content="Five days at IIT Mandi, Kamand, 14–18 June 2027. Mornings are a hands-on school, afternoons a research meeting. Proposed.">
+<meta property="og:title" content="Sangam 2027 — a research meeting in topological data analysis">
+<meta property="og:description" content="IIT Mandi, Kamand, June 2027. A research meeting held the week before SoCG 2027 at IISc Bangalore. Proposed.">
 <meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,21 @@
 </head>
 <body>
 
-<header class="banner">
+<nav class="topnav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">Sangam <span>2027</span></a>
+    <ul>
+      <li><a href="#dates">Dates</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#school">School</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#registration">Registration</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="banner" id="top">
   <div class="banner-art" aria-hidden="true">
     <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" role="presentation">
       <defs>
@@ -50,7 +64,6 @@
           <stop offset="0%"   stop-color="#FDF2E2" stop-opacity="0.72"/>
           <stop offset="100%" stop-color="#FDF2E2" stop-opacity="0"/>
         </linearGradient>
-        <!-- Warm scrim under the title so type stays legible over the range -->
         <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0.35">
           <stop offset="0%"   stop-color="#FDFBF7" stop-opacity="0.44"/>
           <stop offset="42%"  stop-color="#FDFBF7" stop-opacity="0.20"/>
@@ -64,19 +77,15 @@
 
       <rect width="1440" height="800" fill="url(#sky)"/>
 
-      <!-- Low sun, still climbing out of the eastern ridges -->
       <circle cx="1096" cy="286" r="270" fill="url(#glow)"/>
       <circle cx="1096" cy="286" r="42" fill="#FFF0CE" opacity="0.95"/>
 
-      <!-- Thin dawn cloud, catching light from below -->
       <ellipse cx="352"  cy="176" rx="196" ry="9"  fill="#FBE6D6" opacity="0.5"/>
       <ellipse cx="466"  cy="204" rx="128" ry="6"  fill="#FBE6D6" opacity="0.38"/>
       <ellipse cx="1004" cy="140" rx="164" ry="7"  fill="#FCEBDA" opacity="0.42"/>
       <ellipse cx="1148" cy="188" rx="112" ry="5"  fill="#FCEBDA" opacity="0.3"/>
 
-      <!-- Far range: high, sharp, irregular. Palest — distance eats contrast. -->
       <path fill="#C3CCE6" d="M0,486 L54,452 L104,470 L158,404 L210,436 L268,338 L306,372 L352,326 L404,404 L452,376 L492,412 L548,358 L596,390 L654,304 L702,350 L752,318 L812,394 L866,360 L916,398 L978,340 L1024,376 L1082,310 L1134,352 L1192,326 L1250,402 L1302,368 L1358,408 L1408,382 L1440,414 L1440,800 L0,800 Z"/>
-      <!-- Snow, only on the summits that earn it -->
       <path fill="#EFF2FA" opacity="0.85" d="M250,360 L268,338 L288,364 L279,357 L268,367 L259,354 Z"/>
       <path fill="#EFF2FA" opacity="0.85" d="M334,350 L352,326 L372,354 L362,346 L352,356 L344,345 Z"/>
       <path fill="#F3F5FC" opacity="0.9"  d="M632,334 L654,304 L678,338 L666,329 L654,341 L644,328 Z"/>
@@ -84,27 +93,21 @@
       <path fill="#EFF2FA" opacity="0.8"  d="M1174,352 L1192,326 L1212,354 L1202,346 L1192,356 L1183,345 Z"/>
       <rect y="300" width="1440" height="230" fill="url(#haze)"/>
 
-      <!-- Second range -->
       <path fill="#A3ADCE" d="M0,540 L70,508 L130,532 L196,470 L254,502 L318,446 L370,486 L428,452 L486,506 L540,474 L600,514 L662,458 L716,498 L776,466 L840,516 L898,482 L958,520 L1018,468 L1076,506 L1140,472 L1200,518 L1262,486 L1326,524 L1390,494 L1440,522 L1440,800 L0,800 Z"/>
       <rect y="440" width="1440" height="200" fill="url(#haze)" opacity="0.8"/>
 
-      <!-- Third: shoulders start rounding as the rock gives way to forest -->
       <path fill="#7E88AE" d="M0,596 Q64,566 122,588 Q186,530 250,566 Q312,528 372,570 Q436,536 496,580 Q560,542 620,584 Q684,548 744,590 Q808,554 868,594 Q932,558 992,598 Q1056,562 1116,600 Q1180,566 1240,604 Q1304,572 1364,606 Q1408,586 1440,600 L1440,800 L0,800 Z"/>
       <rect y="520" width="1440" height="190" fill="url(#haze)" opacity="0.55"/>
 
-      <!-- Fourth: forested, soft -->
       <path fill="#57608A" d="M0,650 Q80,626 160,646 Q240,614 320,644 Q400,616 480,650 Q560,622 640,652 Q720,626 800,656 Q880,630 960,658 Q1040,632 1120,660 Q1200,636 1280,664 Q1360,640 1440,666 L1440,800 L0,800 Z"/>
       <rect y="590" width="1440" height="180" fill="url(#haze)" opacity="0.32"/>
 
-      <!-- The valley wall you actually stand under -->
       <path fill="#333C63" d="M0,706 Q100,690 200,704 Q300,684 400,702 Q500,686 600,706 Q700,688 800,708 Q900,690 1000,710 Q1100,694 1200,712 Q1300,696 1400,714 Q1430,708 1440,712 L1440,800 L0,800 Z"/>
 
-      <!-- Mist pooling in the folds, the way it does over the Uhl at first light -->
       <rect y="668" width="1440" height="70" fill="url(#mist)"/>
       <ellipse cx="330"  cy="694" rx="230" ry="13" fill="#FDF4E6" opacity="0.42"/>
       <ellipse cx="980"  cy="704" rx="280" ry="12" fill="#FDF4E6" opacity="0.36"/>
 
-      <!-- Griffons, out early on the thermals -->
       <g fill="none" stroke="#4A5378" stroke-width="2.1" stroke-linecap="round" opacity="0.42">
         <path d="M214,238 q11,-9 21,-1 q10,-8 21,1"/>
         <path d="M286,196 q8,-7 16,-1 q8,-6 16,1"/>
@@ -117,15 +120,15 @@
   </div>
 
   <div class="wrap banner-inner">
-    <p class="eyebrow">A school and research meeting in topological data analysis</p>
+    <p class="eyebrow">A research meeting in topological data analysis</p>
     <h1>Sangam <span class="year">2027</span></h1>
     <p class="gloss"><span class="deva">संगम</span> <em>saṅgama · Sanskrit, n.</em> — a confluence: the place where rivers meet.</p>
-    <p class="when">14 – 18 June 2027 · IIT Mandi, Kamand, Himachal Pradesh <span class="tbc">venue tbc</span></p>
-    <p class="lede">Five days: mornings are a hands-on school, afternoons are a research meeting, and everyone is in the same room for both. Held the week before <a href="https://www.computational-geometry.org/cg-week/">SoCG&nbsp;/&nbsp;CG&nbsp;Week 2027</a> at IISc Bangalore — the first SoCG in India — so that students can continue on to the conference and lecturers can combine the two trips.</p>
+    <p class="when">June 2027 · IIT Mandi, Kamand, Himachal Pradesh <span class="tbc">dates &amp; venue tbc</span></p>
+    <p class="lede">A meeting where topological data analysis and computational geometry are in the same room. Held immediately before <a href="https://www.computational-geometry.org/cg-week/">SoCG&nbsp;/&nbsp;CG&nbsp;Week 2027</a> at IISc Bangalore — the first SoCG in India — so that a single trip covers both, and a school in the days beforehand feeds directly into it.</p>
     <div class="chips">
       <span class="chip warm">Proposed · nothing yet confirmed</span>
-      <span class="chip">~40 students</span>
-      <span class="chip">Satellite of SoCG 2027</span>
+      <span class="chip">No parallel sessions</span>
+      <span class="chip">Adjacent to SoCG 2027</span>
     </div>
   </div>
 </header>
@@ -137,40 +140,31 @@
     <div class="notice">
       <div class="flag">Planning stage</div>
       <div>
-        <p><strong>This event is proposed, not scheduled.</strong> The host agreement, the venue, the funding and every invitation are still to come. Dates, programme and committee below are a working plan and will change.</p>
-        <p>Items still to be settled are marked <span class="tbc">tbc</span> throughout. Applications are expected to open in <strong>January 2027</strong>; there is nothing to apply to yet. If you would like to hear when there is, write to <a href="mailto:smajhi@gwu.edu">smajhi@gwu.edu</a>.</p>
+        <p><strong>This meeting is proposed, not scheduled.</strong> The host agreement, the venue, the funding and every invitation are still to come. Everything below is a working plan and will change.</p>
+        <p>Items still to be settled are marked <span class="tbc">tbc</span> throughout. There is nothing to register for yet. To hear when there is, write to <a href="mailto:smajhi@gwu.edu">smajhi@gwu.edu</a>.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="glance">
+<section id="dates">
   <div class="wrap">
-    <p class="kicker">At a glance</p>
-    <h2>One week, two halves, no parallel sessions.</h2>
-    <dl class="facts">
-      <div><dt>Dates</dt><dd>Mon 14 – Fri 18 June 2027</dd></div>
-      <div><dt>Venue</dt><dd>IIT Mandi, Kamand <span class="tbc">tbc</span></dd></div>
-      <div><dt>Cohort</dt><dd>~40 students <span class="tbc">tbc</span></dd></div>
-      <div><dt>Applications</dt><dd>Open Jan 2027</dd></div>
-    </dl>
-    <p class="lede">The school and the research meeting are interleaved rather than run back to back. Students attend both halves; speakers have every morning free and miss no talk. There are no parallel sessions — a programme where the lecturers are in the room for the research talks is what makes the rest of the design work.</p>
-    <div class="cards">
-      <div class="card">
-        <p class="tag">Mornings · school</p>
-        <h3>One lecturer, one topic</h3>
-        <p>A single lecturer owns the whole morning, alternating teaching with hands-on work rather than lecturing first and running a lab afterwards. Five mornings, five topics, about eight hours of teaching against twelve at the keyboard.</p>
-      </div>
-      <div class="card">
-        <p class="tag">Afternoons · research meeting</p>
-        <h3>Talks, then a digest</h3>
-        <p>Four talk slots, a block of five-minute flash talks, and then a <strong>talk digest</strong> — thirty minutes in which one of the school lecturers unpacks the afternoon's talks in the vocabulary the students have by that point.</p>
-      </div>
-      <div class="card">
-        <p class="tag">Evenings · discussion</p>
-        <h3>Laptops, not posters</h3>
-        <p>Flash-talk presenters sit with their laptops open, refreshments out, and people circulate. It keeps the one-to-one conversation a poster session gives you, without asking students to carry print tubes across the country.</p>
-      </div>
+    <p class="kicker">Important dates</p>
+    <h2>Nothing here is fixed yet.</h2>
+    <p class="lede">Listed so the shape of the year is visible. Every date below will move.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>What</th><th>When</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>First speaker invitations</td><td>Autumn 2026</td><td class="tbd">planned</td></tr>
+          <tr><td>Registration opens</td><td>January 2027</td><td class="tbd">planned</td></tr>
+          <tr><td>Contributed talk submission</td><td class="tbd">to be announced</td><td class="tbd">tbc</td></tr>
+          <tr><td>Notification to contributors</td><td class="tbd">to be announced</td><td class="tbd">tbc</td></tr>
+          <tr><td>Early registration closes</td><td class="tbd">to be announced</td><td class="tbd">tbc</td></tr>
+          <tr><td><strong>Sangam 2027</strong></td><td><strong>June 2027</strong> <span class="tbc">exact dates tbc</span></td><td class="tbd">proposed</td></tr>
+          <tr><td>SoCG / CG Week 2027, IISc Bangalore</td><td>21–25 June 2027</td><td>scheduled</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -178,72 +172,36 @@
 <section id="programme">
   <div class="wrap">
     <p class="kicker">Programme</p>
-    <h2>The five school mornings.</h2>
-    <p class="lede">Topics are sequenced so that each morning is usable by the afternoon. Lecturers are being confirmed and will be listed here as they are.</p>
+    <h2>One room, one track.</h2>
+    <p class="lede">A single-track meeting with no parallel sessions. The intent is a room that stays together — where a topologist hears the geometry talks and a computational geometer hears the statistics, rather than two audiences passing in a corridor.</p>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Day</th><th>Topic</th><th>Lecturer</th></tr></thead>
+        <thead><tr><th>Format</th><th>Slot</th><th>Talk</th><th>Questions</th><th>Count</th></tr></thead>
         <tbody>
-          <tr><td>Mon</td><td>Foundations — simplicial complexes, homology, filtrations</td><td class="tbd">To be announced</td></tr>
-          <tr><td>Tue</td><td>Persistent homology — stability and distances</td><td>Sushovan Majhi</td></tr>
-          <tr><td>Wed</td><td>Computation at scale — collapses, sparsification, software internals</td><td class="tbd">To be announced</td></tr>
-          <tr><td>Thu</td><td>Shapes and graphs — Mapper, Reeb graphs, reconstruction</td><td class="tbd">To be announced</td></tr>
-          <tr><td>Fri</td><td>Statistics, machine learning and applications</td><td class="tbd">To be announced</td></tr>
+          <tr><td>Keynote</td><td class="num">45 min</td><td class="num">40</td><td class="num">5</td><td class="num">2</td></tr>
+          <tr><td>Invited</td><td class="num">30 min</td><td class="num">25</td><td class="num">5</td><td class="tbd">tbc</td></tr>
+          <tr><td>Contributed</td><td class="num">20 min</td><td class="num">17</td><td class="num">3</td><td class="tbd">tbc</td></tr>
+          <tr><td>Panel / demo</td><td class="num">40 min</td><td>—</td><td>—</td><td class="num">2</td></tr>
+          <tr><td>Flash talk</td><td class="num">5 min</td><td class="num">5</td><td>—</td><td class="tbd">tbc</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="lede small" style="margin-top:26px;">Thursday is what makes this a SoCG satellite rather than a generic TDA school: Mapper, Reeb graphs and reconstruction are where topology meets computational geometry, and they are what let a student follow talks at CG Week the following week. Friday's applications block runs on a published Euler-characteristic-surfaces pipeline, taught by two of its authors, with the original data.</p>
-
-    <h2 style="margin-top:56px;">A day, hour by hour.</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Time</th><th>Morning — school</th></tr></thead>
-        <tbody>
-          <tr><td class="num">08:00 – 08:50</td><td>Teaching segment 1</td></tr>
-          <tr><td class="num">08:50 – 09:35</td><td>Hands-on 1</td></tr>
-          <tr><td class="num">09:35 – 09:55</td><td>Coffee</td></tr>
-          <tr><td class="num">09:55 – 10:45</td><td>Teaching segment 2</td></tr>
-          <tr><td class="num">10:45 – 11:30</td><td>Hands-on 2</td></tr>
-          <tr><td class="num">11:45 – 12:45</td><td>Consolidation — the day's main exercise, lecturer and TAs circulating</td></tr>
-          <tr><td class="num">12:45 – 14:00</td><td>Lunch</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Time</th><th>Afternoon — research meeting</th></tr></thead>
-        <tbody>
-          <tr><td class="num">14:00 – 16:30</td><td>Four talk slots (tea 15:00)</td></tr>
-          <tr><td class="num">16:30 – 17:05</td><td>Flash talks — seven × five minutes</td></tr>
-          <tr><td class="num">17:05 – 17:35</td><td>Talk digest</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="lede small" style="margin-top:26px;">Labs run in two parallel streams by background — same material, different pace. The admitted cohort will span motivated undergraduates to PhD students, and a single stream would be simultaneously too slow for a third of the room and too fast for another third. Wednesday afternoon is free: a half-day excursion to Rewalsar and Mandi town, with the lab room left open for anyone catching up. <span class="tbc">tbc</span></p>
-  </div>
-</section>
-
-<section id="software">
-  <div class="wrap">
-    <p class="kicker">Software</p>
-    <h2>The labs run on Akriti.</h2>
-    <p class="lede"><a href="/">Akriti</a> is an open ecosystem for topological data analysis in Python: one persistence-diagram format that every backend can speak, the statistical layer Python has been missing, and a maintained home for published TDA methods whoever wrote them. Computation is delegated to <a href="https://gudhi.inria.fr/">GUDHI</a> and <a href="https://ripser.scikit-tda.org/">Ripser</a> rather than reimplemented. Apache-2.0.</p>
-    <p class="lede small">Using it across all five mornings means a student's Tuesday notebook still runs on Friday, and the code written during the school is the code you take home. Everything is published afterwards, so the material outlives the week.</p>
+    <p class="lede small" style="margin-top:26px;">The exact length of the meeting is still open <span class="tbc">tbc</span>. Talks will be ordered by accessibility across the days — surveys and expository work early, technical work later — and every invited speaker will be asked for a short accessible preamble, since a good part of the room will have arrived from the school rather than from the field.</p>
     <div class="cards">
       <div class="card">
-        <p class="tag">Before you arrive</p>
-        <h3>Nothing to install</h3>
-        <p>A preconfigured environment ships in advance and travels on USB sticks as well, because forty people cannot all reach the internet at once. Two online primer sessions in May 2027 cover the linear algebra, the topology vocabulary and the Python setup, so that contact hours go on TDA. <span class="tbc">tbc</span></p>
+        <p class="tag">Evenings</p>
+        <h3>Laptops, not posters</h3>
+        <p>Flash-talk presenters sit with their laptops open, refreshments out, and people circulate. It keeps the one-to-one conversation a poster session gives you, without asking anyone to carry print tubes across the country.</p>
       </div>
       <div class="card">
-        <p class="tag">During the week</p>
-        <h3>Teaching notebooks</h3>
-        <p>Worked, annotated and self-explanatory — not exercise sheets that assume you caught everything in the lecture. Each lecturer's notebook is designed in lockstep with their teaching segments, as one artifact rather than slides handed to a TA.</p>
+        <p class="tag">Midweek</p>
+        <h3>An afternoon out</h3>
+        <p>A half-day excursion to Rewalsar — a pilgrimage lake sacred to Buddhists, Hindus and Sikhs — and the old temples of Mandi town, about 25 km away. Optional, and back by early evening. <span class="tbc">tbc</span></p>
       </div>
       <div class="card">
         <p class="tag">Afterwards</p>
-        <h3>Yours to reuse</h3>
-        <p>The full pack is released openly for anyone to teach from. Adapt it, run it in your own course, tell us what confused your students.</p>
+        <h3>On to Bangalore</h3>
+        <p>SoCG 2027 and CG Week run 21–25 June at IISc Bangalore, leaving the weekend to travel. A half-day CG Week workshop on topology and computational geometry is planned as a companion event. <span class="tbc">proposal pending</span></p>
       </div>
     </div>
   </div>
@@ -251,36 +209,33 @@
 
 <section id="speakers">
   <div class="wrap">
-    <p class="kicker">Research meeting</p>
-    <h2>Speakers to be announced.</h2>
-    <p class="lede">Sixteen talk slots across four afternoons — two keynotes, twelve invited talks, and two panel or demo sessions — plus around twenty-eight flash talks selected from the applications. <strong>No invitations have gone out.</strong> First-wave invitations are planned for autumn 2026, and names will appear here only once they have been accepted.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Format</th><th>Slot</th><th>Talk</th><th>Questions</th><th>Count</th></tr></thead>
-        <tbody>
-          <tr><td>Keynote</td><td class="num">45 min</td><td class="num">40</td><td class="num">5</td><td class="num">2</td></tr>
-          <tr><td>Invited</td><td class="num">30 min</td><td class="num">25</td><td class="num">5</td><td class="num">12</td></tr>
-          <tr><td>Panel / demo</td><td class="num">40 min</td><td>—</td><td>—</td><td class="num">2</td></tr>
-          <tr><td>Flash talk</td><td class="num">5 min</td><td class="num">5</td><td>—</td><td class="num">~28</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="lede small" style="margin-top:26px;">Talks are ordered by accessibility across the week — surveys and expository talks early, technical talks on Thursday and Friday, by which point students have had eight teaching segments behind them. Some talks will still go over some heads. That is deliberate: hearing what the frontier sounds like is part of what a week like this is for.</p>
+    <p class="kicker">Speakers</p>
+    <h2>To be announced.</h2>
+    <p class="lede"><strong>No invitations have gone out.</strong> First-wave invitations are planned for autumn 2026, and names will appear here only once they have been accepted — not before.</p>
+    <p class="lede small">The meeting will mix invited talks with contributed ones selected from submissions, so a substantial part of the programme is open rather than invitation-only. Details of how to submit will follow with registration. <span class="tbc">tbc</span></p>
   </div>
 </section>
 
-<section id="students">
+<section id="school">
   <div class="wrap">
-    <p class="kicker">Students</p>
-    <h2>Who this is for.</h2>
-    <p class="lede">Around forty places, open from motivated undergraduates through to PhD students. Applications are expected to open in <strong>January 2027</strong> — a CV, a short statement, and a note from an advisor. <span class="tbc">cohort size and process tbc</span></p>
+    <p class="kicker">Beforehand</p>
+    <h2>A school, in the days before.</h2>
+    <p class="lede">A separate introductory school in topological data analysis is being planned at IIT Mandi for the days immediately preceding Sangam, organised locally and funded independently of this meeting. It is intended for students and newcomers to the field, and its participants are welcome to register for Sangam and stay on. <span class="tbc">dates, format and funding tbc</span></p>
+    <p class="lede small">The two events are deliberately separate — different organisers, different budgets, different audiences — but scheduled so that a student can arrive knowing no persistent homology and leave having heard current research, and then continue to CG Week if they wish. Details will be published by the school's organisers.</p>
+  </div>
+</section>
+
+<section id="registration">
+  <div class="wrap">
+    <p class="kicker">Registration</p>
+    <h2>Not open yet.</h2>
+    <p class="lede">Registration is expected to open in <strong>January 2027</strong>. Fees are not settled; the intention is a modest charge for faculty and industry participants, and free or near-free registration for students. <span class="tbc">tbc</span></p>
     <div class="points">
-      <div class="point"><span class="n">01</span><span class="t">Linear algebra, and comfort with Python</span><span class="s">required</span></div>
-      <div class="point"><span class="n">02</span><span class="t">Some topology</span><span class="s">helpful</span></div>
-      <div class="point"><span class="n">03</span><span class="t">Places held for the Northeast and non-metro institutions</span><span class="s">reserved</span></div>
-      <div class="point"><span class="n">04</span><span class="t">Flash-talk slots, chosen from the applications</span><span class="s">open to all</span></div>
+      <div class="point"><span class="n">01</span><span class="t">Open to all — no invitation required to attend</span><span class="s">confirmed</span></div>
+      <div class="point"><span class="n">02</span><span class="t">Contributed talks selected from submissions</span><span class="s">planned</span></div>
+      <div class="point"><span class="n">03</span><span class="t">Places reserved for students from non-metro institutions</span><span class="s">intended</span></div>
+      <div class="point"><span class="n">04</span><span class="t">Accommodation on campus, booked with registration</span><span class="s">tbc</span></div>
     </div>
-    <p class="lede small" style="margin-top:26px;">Most students who give a flash talk will never have given a timed talk before, so a TA-led rehearsal hour runs on the Monday evening. Two lightning slots at the companion CG Week workshop are reserved for the strongest school students. <span class="tbc">workshop proposal not yet submitted</span></p>
   </div>
 </section>
 
@@ -288,28 +243,28 @@
   <div class="wrap">
     <p class="kicker">Where</p>
     <h2>Kamand, Himachal Pradesh.</h2>
-    <p class="lede">The proposed venue is the Kamand campus of the <strong>Indian Institute of Technology Mandi</strong>, in the Himalayan foothills about 14 km above Mandi town at around a thousand metres — roughly 15–25 °C in June. Everyone is housed on campus with the mess on site, which is the only reason an 08:00 start is reasonable. <span class="tbc">hosting request not yet made; hostel capacity unverified</span></p>
+    <p class="lede">The proposed venue is the Kamand campus of the <strong>Indian Institute of Technology Mandi</strong>, in the Himalayan foothills about 14 km above Mandi town at around a thousand metres — roughly 15–25 °C in June. Participants are housed on campus, with the mess on site. <span class="tbc">hosting request not yet made</span></p>
     <div class="cards">
       <div class="card">
         <p class="tag">Getting there</p>
         <h3>Via Chandigarh</h3>
-        <p>Coaches from Chandigarh to Kamand on the Sunday, and back at the end of the week. Detailed travel guidance, visa support letters and a group booking will follow once the event is confirmed. <span class="tbc">tbc</span></p>
+        <p>Coaches from Chandigarh to Kamand at the start of the meeting, and back at the end. Detailed travel guidance, visa support letters and group booking will follow once the meeting is confirmed. <span class="tbc">tbc</span></p>
       </div>
       <div class="card">
-        <p class="tag">And afterwards</p>
-        <h3>On to Bangalore</h3>
-        <p>SoCG 2027 and CG Week run 21–25 June at IISc Bangalore, leaving the weekend to travel. A half-day CG Week workshop on topology and computational geometry is planned as a companion event. <span class="tbc">proposal pending</span></p>
+        <p class="tag">In June</p>
+        <h3>Cool, and green</h3>
+        <p>The valley sits high enough to escape the plains heat. Expect mild days, cool evenings, and the first hints of the monsoon toward the end of the month.</p>
       </div>
       <div class="card">
-        <p class="tag">Midweek</p>
-        <h3>Rewalsar and Mandi</h3>
-        <p>Wednesday afternoon: the pilgrimage lake at Rewalsar, sacred to Buddhists, Hindus and Sikhs, and the old temples of Mandi town — about 25 km, back by early evening. Optional. <span class="tbc">tbc</span></p>
+        <p class="tag">Nearby</p>
+        <h3>Mandi town</h3>
+        <p>Known as the Varanasi of the hills for its density of old temples, and the natural stop for anyone arriving early or staying on.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="committee">
+<section id="organisers">
   <div class="wrap">
     <p class="kicker">Organisers</p>
     <h2>Organising committee.</h2>
@@ -331,27 +286,17 @@
         <p class="role">Programme</p>
         <p class="name">Atish Mitra</p>
         <p class="affil">&nbsp;</p>
-        <p class="owns">Programme · school syllabus.</p>
+        <p class="owns">Programme.</p>
       </div>
       <div class="person">
         <p class="role">Coordinator</p>
         <p class="name">Buddha Nath Sharma</p>
         <p class="affil">NIT Sikkim</p>
-        <p class="owns">Applications · announcements · speaker correspondence.</p>
+        <p class="owns">Registration · announcements · speaker correspondence.</p>
       </div>
     </div>
-    <p class="lede small">Teaching assistants for the labs: <strong>Jacob Sriraman</strong> (Montana State, and a long-term maintainer of Akriti) and <strong>Buddha Nath Sharma</strong>, with further assistants from IIT Mandi. <span class="tbc">tbc</span></p>
-  </div>
-</section>
-
-<section id="pack">
-  <div class="wrap">
-    <p class="kicker">Afterwards</p>
-    <h2>The teaching pack, released openly.</h2>
-    <p class="lede">Everything taught during the week — notes, notebooks, data and solutions — is published afterwards for anyone to teach from. Adapt it, run it in your own course, tell us what confused your students.</p>
-    <p class="lede small">It is the part of the week that is still useful to the next cohort, and it is why the labs run on one ecosystem rather than five: the material has to work for someone who was never in the room.</p>
     <div class="callout">
-      <p><strong>Nothing is open yet.</strong> Applications are expected in January 2027. To be told when they are — or to talk about speaking, hosting or supporting the week — get in touch.</p>
+      <p><strong>Nothing is open yet.</strong> Registration is expected in January 2027. To be told when it is — or to talk about speaking, hosting or supporting the meeting — get in touch.</p>
       <a href="mailto:smajhi@gwu.edu">smajhi@gwu.edu →</a>
     </div>
   </div>
@@ -363,8 +308,9 @@
   <div class="wrap">
     <p class="seal"><span>SANGAM</span><span class="dot"></span><span>संगम</span></p>
     <p class="meta">
-      <span>Sangam 2027 · proposed · a school and research meeting in topological data analysis</span>
-      <span>IIT Mandi, Kamand, Himachal Pradesh · 14–18 June 2027 · <a href="mailto:smajhi@gwu.edu">smajhi@gwu.edu</a></span>
+      <span>Sangam 2027 · proposed · a research meeting in topological data analysis</span>
+      <span>IIT Mandi, Kamand, Himachal Pradesh · June 2027 · <a href="mailto:smajhi@gwu.edu">smajhi@gwu.edu</a></span>
+      <span>Convened with support from <a href="/">Akriti</a>.</span>
     </p>
   </div>
 </footer>

@@ -81,6 +81,73 @@ h1, h2, h3 {
   padding-inline: var(--gutter);
 }
 
+/* ── Top navigation ──────────────────────────────────────────────────────── */
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(253, 251, 247, 0.82);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border-bottom: 1px solid rgba(231, 223, 209, 0.7);
+}
+
+.nav-inner {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 12px var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  border-bottom: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-brand span { font-style: italic; font-weight: 300; color: #9A6B2F; }
+.nav-brand:hover { color: var(--ink); }
+
+.topnav ul {
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.topnav ul::-webkit-scrollbar { display: none; }
+
+.topnav a:not(.nav-brand) {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+.topnav a:not(.nav-brand):hover {
+  color: var(--ink);
+  border-bottom-color: var(--sun);
+}
+
+/* The sticky bar would otherwise land on top of an anchored heading. */
+section { scroll-margin-top: 68px; }
+
+@media (max-width: 620px) {
+  .nav-inner { gap: 16px; padding-inline: 20px; }
+  .topnav ul { gap: 16px; }
+}
+
 /* ── Banner ──────────────────────────────────────────────────────────────── */
 
 .banner {
