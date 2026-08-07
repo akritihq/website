@@ -21,6 +21,22 @@ cp -f "$WEBSITE_DIR/_static/CNAME" "$OUT_DIR/CNAME"
 # over it; we simply copy it into place after each render.
 rsync -a --delete --exclude '.DS_Store' --exclude 'README.md' \
   "$WEBSITE_DIR/_static/sangam/" "$OUT_DIR/sangam/"
+
+# Cache-bust the stylesheet. Pages serves it with max-age=600, so a browser can
+# hold a ten-minute-old style.css against freshly deployed HTML. On a hero with
+# light type over a dark photograph that means invisible text, which is exactly
+# what happened on 2026-08-07. A content hash in the href rules it out.
+SANGAM_CSS="$OUT_DIR/sangam/assets/style.css"
+if [ -f "$SANGAM_CSS" ]; then
+  if command -v md5 >/dev/null 2>&1; then
+    CSS_HASH=$(md5 -q "$SANGAM_CSS" | cut -c1-8)
+  else
+    CSS_HASH=$(md5sum "$SANGAM_CSS" | cut -c1-8)
+  fi
+  perl -pi -e "s{assets/style\.css(\?v=[0-9a-f]+)?}{assets/style.css?v=$CSS_HASH}g" \
+    "$OUT_DIR/sangam/index.html"
+  echo "post-render: stamped sangam stylesheet as ?v=$CSS_HASH"
+fi
 echo "post-render: copied _static/sangam/ into $OUT_DIR/sangam"
 
 # Drop provisional pages from the sitemap. They carry <meta robots="noindex">,
