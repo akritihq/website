@@ -115,7 +115,6 @@ ul.task-list li input[type="checkbox"] {
       <li><a href="#principles">Principles</a></li>
       <li><a href="#contribute">Contribute</a></li>
       <li><a href="#team">Team</a></li>
-      <li><a href="./teach/">Teach</a></li>
     </ul>
     <a href="https://huggingface.co/spaces/akritihq/try" class="nav-try" target="_blank" rel="noopener">
       Try&nbsp;<span aria-hidden="true">↗</span>
@@ -136,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
   <p class="tagline">An open ecosystem for topological data analysis in Python.</p>
   <p class="sublede">One diagram format across every backend. A statistical layer that turns shape into evidence. A maintained home for published TDA methods, whoever wrote them. Built on GUDHI and Ripser rather than around them — Apache-2.0, openly governed, contributions welcome.</p>
   <div class="badges">
-    <span class="badge primary">In development · first release 2026</span>
+    <span class="badge primary">akriti 0.2.0 on PyPI</span>
     <span class="badge">Apache-2.0</span>
     <span class="badge">Built on GUDHI &amp; Ripser</span>
   </div>
@@ -194,14 +193,14 @@ ul.task-list li input[type="checkbox"] {
     <p class="lede" style="font-size:15px;color:#555;">Akriti is early. Modules are marked <em>building</em> where work is under way and <em>planned</em> where they are on the roadmap — we would rather be accurate than impressive.</p>
     <div class="cap-grid">
       <div class="cap-card">
-        <div class="cap-name">akriti.diagrams · <em>building</em></div>
+        <div class="cap-name">akriti.diagrams · <em>available</em></div>
         <div class="cap-title">One diagram format</div>
         <div class="cap-body">A single persistence-diagram type with adapters for GUDHI, Ripser, giotto-tda, persim and plain arrays. The specification is public and open to comment — we would rather it became a shared convention than an Akriti detail.</div>
       </div>
       <div class="cap-card">
-        <div class="cap-name">akriti.castle · <em>building</em></div>
+        <div class="cap-name">akriti.castle · <em>planned</em></div>
         <div class="cap-title">Statistics for diagrams</div>
-        <div class="cap-body">A two-sample test with an effect size in bottleneck distance, a <strong>sample-size calculator</strong> for topological effects, a per-region significance map and a robustness certificate — plus a reporting card you can paste into a methods section.</div>
+        <div class="cap-body">A two-sample test reporting a confidence interval for the separation it measures, a <strong>sample-size calculator</strong> for topological effects, a per-region significance map and a robustness certificate — plus a reporting card you can paste into a methods section.</div>
       </div>
       <div class="cap-card">
         <div class="cap-name">akriti.methods · <em>planned</em></div>
@@ -209,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
         <div class="cap-body">Reference implementations of published TDA statistics regardless of who wrote them — permutation tests, confidence sets, survival-based approaches, competing vectorisations — each cited, benchmarked against the others, and maintained.</div>
       </div>
       <div class="cap-card">
-        <div class="cap-name">akriti.core · <em>building</em></div>
+        <div class="cap-name">akriti.core · <em>planned</em></div>
         <div class="cap-title">Embeddings &amp; certificates</div>
         <div class="cap-body">Landmark embeddings, closed-form descriptor selection with its validity conditions stated explicitly, and per-prediction certificate radii. Where a closed-form choice is provably unreliable, the library says so instead of guessing.</div>
       </div>
@@ -246,15 +245,21 @@ ul.task-list li input[type="checkbox"] {
   <div class="akriti-container">
     <h3 class="section-heading">In Python</h3>
     <h2 class="section-title">From diagram to defensible claim.</h2>
-    <p class="lede">Bring diagrams from any backend, or let Akriti compute them. Either way you finish with a number you can put in a paper. <em>API shown is indicative and still settling.</em></p>
+    <p class="lede">Bring diagrams from any backend and finish with a number you can put in a paper, next to the sentence describing what it does and does not claim. <em><code>akriti.diagrams</code> ships today; <code>akriti.castle</code> is being built against a published specification and the API below is not yet final.</em></p>
     <pre class="code-block"><span class="k">import</span> <span class="n">akriti</span>
 
 <span class="c"># ── Bring diagrams from wherever you already compute them ─────</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">diagrams</span><span class="o">.</span><span class="n">from_gudhi</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="n">persistence</span><span class="o">())</span>
 
-<span class="c"># ── Are these two groups topologically different? ─────────────</span>
+<span class="c"># ── Do these two groups differ? ───────────────────────────────</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">two_sample</span><span class="o">(</span><span class="n">group_A</span><span class="o">,</span> <span class="n">group_B</span><span class="o">)</span>
-<span class="b">print</span><span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="n">p_value</span><span class="o">,</span> <span class="n">test</span><span class="o">.</span><span class="n">effect_size</span><span class="o">)</span>
+
+<span class="c"># The interval is the primary output, not the p-value ─────────</span>
+<span class="b">print</span><span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="n">delta_lower</span><span class="o">,</span> <span class="n">test</span><span class="o">.</span><span class="n">delta_upper</span><span class="o">)</span>
+
+<span class="c"># Every p-value carries the null it is valid under ────────────</span>
+<span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">test</span><span class="o">.</span><span class="n">calibrations</span><span class="o">:</span>
+    <span class="b">print</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">p_value</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">valid_under</span><span class="o">)</span>
 
 <span class="c"># ── How much data would I have needed? ────────────────────────</span>
 <span class="n">n</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">sample_size</span><span class="o">(</span><span class="n">effect</span><span class="o">=</span><span class="n">0.1</span><span class="o">,</span> <span class="n">power</span><span class="o">=</span><span class="n">0.8</span><span class="o">,</span> <span class="n">pilot</span><span class="o">=</span><span class="n">D</span><span class="o">)</span>
@@ -360,27 +365,22 @@ ul.task-list li input[type="checkbox"] {
   <div class="akriti-container">
     <h3 class="section-heading">Where it started</h3>
     <h2 class="section-title">Founded on our own research. Not limited to it.</h2>
-    <p class="lede" style="font-size:15px;color:#555;">Akriti began as the software behind four papers from our group, and those results remain the statistical core. But an ecosystem that implements only its founders' work is a library with ambitions — the roadmap deliberately includes methods we did not write.</p>
+    <p class="lede" style="font-size:15px;color:#555;">Akriti began as the software behind three papers from our group — all now public — and those results remain the statistical core. CASTLE is not among them: it is the practitioner-facing toolkit, and it ships as code rather than as a paper. But an ecosystem that implements only its founders' work is a library with ambitions — the roadmap deliberately includes methods we did not write.</p>
     <div class="papers-grid">
-      <div class="paper-card">
-        <div class="tag">CASTLE · Paper IV</div>
-        <div class="title">A Practitioner's Toolkit for Topological Two-Sample Testing, Sample-Size Calculation, and Robustness Certification</div>
-        <div class="meta">In preparation · 2026</div>
-      </div>
-      <div class="paper-card">
-        <div class="tag">Paper III</div>
-        <div class="title">A Statistical-Inference Pipeline for Persistence-Landmark Kernels: CLT, Berry–Esseen, and Functional Limits</div>
-        <div class="meta">In preparation · 2026</div>
-      </div>
       <div class="paper-card">
         <div class="tag">PLACE · Paper I</div>
         <div class="title">A Closed-Form Persistence-Landmark Pipeline for Certified Point-Cloud and Graph Classification</div>
-        <div class="meta">TMLR · 2026 (under review)</div>
+        <div class="meta">TMLR · 2026 · <a href="https://arxiv.org/abs/2605.02836">arXiv:2605.02836</a></div>
       </div>
       <div class="paper-card">
         <div class="tag">PALACE · Paper II</div>
-        <div class="title">Adaptive Landmark Embeddings for Persistence Diagrams: Closed-Form Mahalanobis Selection and Per-Prediction Certificates</div>
-        <div class="meta">JMLR · 2026 (under review)</div>
+        <div class="title">A Closed-Form Adaptive-Landmark Kernel for Certified Point-Cloud and Graph Classification</div>
+        <div class="meta">Under review at JMLR · <a href="https://arxiv.org/abs/2605.04046">arXiv:2605.04046</a></div>
+      </div>
+      <div class="paper-card">
+        <div class="tag">Paper III</div>
+        <div class="title">Statistical Inference for Persistence Diagrams via Landmark Embeddings: Minimax Theory and Finite Approximation</div>
+        <div class="meta">2026 · <a href="https://arxiv.org/abs/2609.07691">arXiv:2609.07691</a></div>
       </div>
     </div>
     <div class="built-on">
