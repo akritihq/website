@@ -8,7 +8,7 @@ project:
 
 website:
   title: "Akriti"
-  description: "Modern topological data analysis for Python. Compute persistence diagrams, vectorise them, classify, compare, certify — in two lines of code. Built on GUDHI, Apache-2.0."
+  description: "An open ecosystem for topological data analysis in Python. One persistence-diagram format across every backend, and the statistical layer Python has been missing. Built on GUDHI and Ripser, Apache-2.0."
   site-url: "https://akriti.io"
   favicon: "branding/akriti-mark.svg"
   open-graph: true
