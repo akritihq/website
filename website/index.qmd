@@ -111,7 +111,7 @@ format:
         <div class="cap-body">A single persistence-diagram type with adapters for GUDHI, Ripser, giotto-tda, persim and plain arrays. The specification is public and open to comment — we would rather it became a shared convention than an Akriti detail.</div>
       </div>
       <div class="cap-card">
-        <div class="cap-name">akriti.castle · <em>planned</em></div>
+        <div class="cap-name">akriti.inference · <em>planned</em></div>
         <div class="cap-title">Statistics for diagrams</div>
         <div class="cap-body">A two-sample test reporting a confidence interval for the separation it measures, a <strong>sample-size calculator</strong> for topological effects, a per-region significance map and a robustness certificate — plus a reporting card you can paste into a methods section.</div>
       </div>
@@ -164,14 +164,14 @@ format:
   <div class="akriti-container">
     <h3 class="section-heading">In Python</h3>
     <h2 class="section-title">From diagram to defensible claim.</h2>
-    <p class="lede">Bring diagrams from any backend and finish with a number you can put in a paper, next to the sentence describing what it does and does not claim. <em><code>akriti.diagrams</code> ships today; <code>akriti.castle</code> is being built against a published specification and the API below is not yet final.</em></p>
+    <p class="lede">Bring diagrams from any backend and finish with a number you can put in a paper, next to the sentence describing what it does and does not claim. <em><code>akriti.diagrams</code> ships today; <code>akriti.inference</code> is being built against a draft specification, and the API below is not yet final.</em></p>
     <pre class="code-block"><span class="k">import</span> <span class="n">akriti</span>
 
 <span class="c"># ── Bring diagrams from wherever you already compute them ─────</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">diagrams</span><span class="o">.</span><span class="n">from_gudhi</span><span class="o">(</span><span class="n">st</span><span class="o">.</span><span class="n">persistence</span><span class="o">())</span>
 
 <span class="c"># ── Do these two groups differ? ───────────────────────────────</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">two_sample</span><span class="o">(</span><span class="n">group_A</span><span class="o">,</span> <span class="n">group_B</span><span class="o">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">two_sample</span><span class="o">(</span><span class="n">group_A</span><span class="o">,</span> <span class="n">group_B</span><span class="o">)</span>
 
 <span class="c"># The interval is the primary output, not the p-value ─────────</span>
 <span class="b">print</span><span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="n">delta_lower</span><span class="o">,</span> <span class="n">test</span><span class="o">.</span><span class="n">delta_upper</span><span class="o">)</span>
@@ -181,7 +181,7 @@ format:
     <span class="b">print</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">p_value</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">valid_under</span><span class="o">)</span>
 
 <span class="c"># ── How much data would I have needed? ────────────────────────</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">castle</span><span class="o">.</span><span class="n">sample_size</span><span class="o">(</span><span class="n">effect</span><span class="o">=</span><span class="n">0.1</span><span class="o">,</span> <span class="n">power</span><span class="o">=</span><span class="n">0.8</span><span class="o">,</span> <span class="n">pilot</span><span class="o">=</span><span class="n">D</span><span class="o">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">akriti</span><span class="o">.</span><span class="n">inference</span><span class="o">.</span><span class="n">sample_size</span><span class="o">(</span><span class="n">effect</span><span class="o">=</span><span class="n">0.1</span><span class="o">,</span> <span class="n">power</span><span class="o">=</span><span class="n">0.8</span><span class="o">,</span> <span class="n">pilot</span><span class="o">=</span><span class="n">D</span><span class="o">)</span>
 
 <span class="c"># ── A reporting card for the methods section ──────────────────</span>
 <span class="b">print</span><span class="o">(</span><span class="n">test</span><span class="o">.</span><span class="n">report</span><span class="o">())</span></pre>
@@ -293,7 +293,7 @@ format:
   <div class="akriti-container">
     <h3 class="section-heading">Where it started</h3>
     <h2 class="section-title">Founded on our own research. Not limited to it.</h2>
-    <p class="lede" style="font-size:15px;color:#555;">Akriti began as the software behind three papers from our group — all now public — and those results remain the statistical core. CASTLE is not among them: it is the practitioner-facing toolkit, and it ships as code rather than as a paper. But an ecosystem that implements only its founders' work is a library with ambitions — the roadmap deliberately includes methods we did not write.</p>
+    <p class="lede" style="font-size:15px;color:#555;">Akriti began as the software behind three papers from our group — all now public — and those results remain the statistical core. The practitioner-facing layer, <code>akriti.inference</code>, is not among them: it ships as code rather than as a paper, and its statistics are Paper III's. But an ecosystem that implements only its founders' work is a library with ambitions — the roadmap deliberately includes methods we did not write.</p>
     <div class="papers-grid">
       <div class="paper-card">
         <div class="tag">PLACE · Paper I</div>
